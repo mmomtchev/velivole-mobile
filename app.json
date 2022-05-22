@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "velivole-react-native",
-    "slug": "velivole-react-native",
+    "name": "velivole.fr / meteo.guru",
+    "slug": "velivole",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./icons/velivole.svg",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./icons/velivole.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,16 +18,18 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "fr.velivole.reactnative",
       "supportsTablet": true
     },
     "android": {
+      "package": "fr.velivole.reactnative",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./icons/velivole.svg",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./icons/velivole.svg"
     }
   }
 }
