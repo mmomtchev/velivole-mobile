@@ -4,10 +4,10 @@
     "slug": "velivole",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./icons/velivole.svg",
+    "icon": "./icons/velivole.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./icons/velivole.svg",
+      "image": "./icons/velivole.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,12 +24,12 @@
     "android": {
       "package": "fr.velivole.reactnative",
       "adaptiveIcon": {
-        "foregroundImage": "./icons/velivole.svg",
+        "foregroundImage": "./icons/velivole.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./icons/velivole.svg"
+      "favicon": "./icons/favicon.png"
     }
   }
 }
