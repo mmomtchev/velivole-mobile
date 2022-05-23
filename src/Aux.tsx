@@ -11,12 +11,12 @@ export default function Aux(props: {
 }) {
     const page = props.page;
     const coords = props.selected.geometry.coordinates;
-    const uri = `https://www.velivole.fr/${page}` +
-        `?long=${coords[0]}&lat=${coords[1]}`;
+    const uri = React.useMemo(() => `https://www.velivole.fr/${page}` +
+        `?long=${coords[0]}&lat=${coords[1]}`, [page, coords]);
 
     return (
         <View style={{ flex: 1, paddingTop: 5 }} >
-            <WebView source={{ uri }} />
+            <WebView source={{ uri }} pullToRefreshEnabled={true} />
         </View>
     );
 }

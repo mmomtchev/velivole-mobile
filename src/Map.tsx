@@ -70,6 +70,7 @@ export default class Map extends React.PureComponent<MapProps> {
                     cache={__DEV__ ? false : true}
                     source={{ uri: url }}
                     injectedJavaScript={this.sessionCode}
+                    pullToRefreshEnabled={true}
                     // 3) Receiving session updates from the web application which happens here
                     onMessage={(event) => {
                         try {
