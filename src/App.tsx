@@ -43,12 +43,18 @@ export default function App() {
 					<Tabs.Screen name='Map' options={tabOptions(i18n.t('Map'), IconMap)}>
 						{() => <Map selected={selected} setSelected={setSelected} mode={config.mode} height={config.height} />}
 					</Tabs.Screen>
-					<Tabs.Screen name='Profile' options={tabOptions(i18n.t('Profile'), IconProfile)}>
-						{() => selected ? <Aux selected={selected} page='profile' /> : null}
-					</Tabs.Screen>
-					<Tabs.Screen name='Emagram' options={tabOptions(i18n.t('Emagram'), IconEmagram)}>
-						{() => selected ? <Aux selected={selected} page='emagram' /> : null}
-					</Tabs.Screen>
+					{
+						selected !== null ?
+							<React.Fragment>
+								<Tabs.Screen name='Profile' options={tabOptions(i18n.t('Profile'), IconProfile)}>
+									{() => <Aux selected={selected} page='profile' />}
+								</Tabs.Screen>
+								<Tabs.Screen name='Emagram' options={tabOptions(i18n.t('Emagram'), IconEmagram)}>
+									{() => <Aux selected={selected} page='emagram' />}
+								</Tabs.Screen>
+							</React.Fragment>
+							: null
+					}
 					<Tabs.Screen name='Settings' options={tabOptions(i18n.t('Settings'), IconSettings)}>
 						{() => <Settings config={config} update={() => setDummy({})} />}
 					</Tabs.Screen>
