@@ -1,12 +1,16 @@
 import { Platform } from 'react-native';
 
 import * as SQLite from 'expo-sqlite';
+import { Asset } from 'expo-asset';
+import * as FileSystem from 'expo-file-system';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-root-toast';
 import i18n from 'i18n-js';
 
 import ServerAPI, { GeoJSONCollection, GeoJSONFeature } from './server';
+
+const placesAsset = require('../assets/places.db');
 
 export function siteName(site: GeoJSONFeature): string {
     return site.properties.n + (site.properties.s ? ` : ${site.properties.s}` : '');
@@ -16,7 +20,7 @@ export interface IGeoDB {
     op: number;
     search(text: string): Promise<GeoJSONFeature[]>;
     all(): Promise<GeoJSONFeature[]>;
-    load(): Promise<void>;
+    load(table: string): Promise<void>;
     add(item: GeoJSONFeature): Promise<void>;
     delete(item: GeoJSONFeature): Promise<void>;
 }
@@ -42,9 +46,19 @@ export class GeoDB implements GeoDB {
         });
     }
 
-    async load() {
+    async load(table: string) {
+        this.table = table;
+        if (this.table === 'places') {
+            if (!(await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'SQLite')).exists)
+                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'SQLite');
+            await FileSystem.downloadAsync(
+                Asset.fromModule(placesAsset).uri, FileSystem.documentDirectory + `SQLite/${table}.db`);
+            this.db = await SQLite.openDatabase(`${table}.db`);
+            return;
+        }
         const last = parseInt(await AsyncStorage.getItem(`@lastUpdate_${this.table}`).catch(() => undefined) || '0');
-        if (last + 1000 * 3600 * 2 < Date.now()) {
+        const time = 1000 * 3600 * (__DEV__ ? 1 : 24 * 15);
+        if (last + time < Date.now()) {
             Toast.show(i18n.t('Updating sites'), { duration: Toast.durations.LONG });
             console.debug(`Updating GeoDB ${this.table}`);
             const geojson = await ServerAPI.getDB(this.table);
@@ -94,7 +108,9 @@ export class GeoDB implements GeoDB {
     async search(text: string): Promise<GeoJSONFeature[]> {
         const r: GeoJSONFeature[] = [];
         const pattern = `%${text}%`;
-        const db = await this.exec(`SELECT rowid, n, s, t, o, lng, lat FROM ${this.table} WHERE n LIKE ? OR s LIKE ?;`, [pattern, pattern]);
+        const db = this.table === 'places' ?
+            await this.exec(`SELECT n, r as s, lng, lat FROM ${this.table} WHERE n LIKE ?;`, [pattern]) :
+            await this.exec(`SELECT rowid, n, s, t, o, lng, lat FROM ${this.table} WHERE n LIKE ? OR s LIKE ?;`, [pattern, pattern]);
         if (!db[0].rows) return r;
         for (const row of db[0].rows) {
             r.push({
@@ -126,16 +142,20 @@ export function init(name: string): IGeoDB {
         const mapping: Record<string, string> = {
             launch_sites: 'launch',
             airport_sites: 'airport',
-            towns: 'place',
+            places: 'place',
             favorites: 'launch'
         };
+        let table = name;
         if (name !== 'favorites') {
             const mock: IGeoDB = {
                 op: 0,
-                search: (query: string) => fetch(`http://localhost:8008/search/${mapping[name]}/${query}`)
+                search: (query: string) => fetch(`http://localhost:8008/search/${mapping[table]}/${query}`)
                     .then((r) => r.json()),
                 all: () => Promise.resolve([]),
-                load: () => Promise.resolve(undefined),
+                load: (newName: string) => {
+                    table = newName;
+                    return Promise.resolve(undefined);
+                },
                 add: () => Promise.resolve(undefined),
                 delete: () => Promise.resolve(undefined)
             };
@@ -149,7 +169,7 @@ export function init(name: string): IGeoDB {
             search: () => Promise.resolve(data),
             load: () => Promise.resolve(undefined),
             add: (item: GeoJSONFeature) => {
-                data.push({...item, id: uid++});
+                data.push({ ...item, id: uid++ });
                 return Promise.resolve(undefined);
             },
             delete: (item: GeoJSONFeature) => {

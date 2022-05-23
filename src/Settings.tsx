@@ -4,12 +4,11 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReactNativeSettings, { SettingsElement } from '@mmomtchev/react-native-settings';
 import i18n from 'i18n-js';
 
-import ServerAPI, { GeoJSONFeature } from './server';
 import { Config } from './config';
+import { veliHeight, veliMode } from './util';
 
 const styles = StyleSheet.create({
     container: {
@@ -21,22 +20,22 @@ const styles = StyleSheet.create({
     }
 });
 
-const modeLabel = () => ({ 'P': i18n.t('Paragliding'), 'H': i18n.t('Hang-gliding'), S: i18n.t('Sailplane') }) as Record<string, string>;
-const heightLabel: Record<string, string> = { 'G': 'AGL', 'S': 'AMSL' };
+const modeLabel = () => ({ 'P': i18n.t('Paragliding'), 'H': i18n.t('Hang-gliding'), S: i18n.t('Sailplane') }) as Record<veliMode, string>;
+const heightLabel: Record<veliHeight, string> = { 'G': 'AGL', 'S': 'AMSL' };
 
 const translateSettings = (config: Config, update: () => void) => [
     {
-        label: i18n.t('Mode'), type: 'enum', values: ['P', 'H', 'S'], display: (v: string) => modeLabel()[v],
+        label: i18n.t('Mode'), type: 'enum', values: ['P', 'H', 'S'], display: (v: string) => modeLabel()[v as veliMode],
         get: config.get.bind(config, '@mode', () => 'P'), set: (v) => {
             update();
-            return config.setMode(v as 'P' | 'H' | 'S');
+            return config.setMode(v as veliMode);
         }
     },
     {
-        label: i18n.t('Height'), type: 'enum', values: ['G', 'S'], display: (v: string) => heightLabel[v],
+        label: i18n.t('Height'), type: 'enum', values: ['G', 'S'], display: (v: string) => heightLabel[v as veliHeight],
         get: config.get.bind(config, '@height', () => 'S'), set: (v) => {
             update();
-            return config.setHeight(v as 'G' | 'S');
+            return config.setHeight(v as veliHeight);
         }
     },
     {

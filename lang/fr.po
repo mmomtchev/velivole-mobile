@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: Sun May 22 2022 13:02:55 GMT+0200 (Central European "
+"POT-Creation-Date: Mon May 23 2022 10:53:08 GMT+0200 (Central European "
 "Summer Time)\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
@@ -13,85 +13,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: App.tsx:41
+#: src/App.tsx:40
 msgid "Home"
 msgstr "Accueil"
 
-#: App.tsx:44
+#: src/App.tsx:43
 msgid "Map"
 msgstr "Carte"
 
-#: App.tsx:47
+#: src/App.tsx:46
 msgid "Profile"
 msgstr "Coupe"
 
-#: App.tsx:50
+#: src/App.tsx:49
 msgid "Emagram"
 msgstr "Emagramme"
 
-#: App.tsx:53
+#: src/App.tsx:52
 msgid "Settings"
 msgstr "Réglages"
 
-#: GeoDB.ts:48
+#: src/GeoDB.ts:62
 msgid "Updating sites"
 msgstr "Mise à jour des sites"
 
-#: GeoDB.ts:52
+#: src/GeoDB.ts:66
 msgid "Sites updated"
 msgstr "Sites mis à jour"
 
-#: Home.tsx:72
+#: src/Home.tsx:78
 msgid "My Location"
 msgstr "Ma position"
 
-#: Home.tsx:77
+#: src/Home.tsx:83
 msgid "Add to Favorites"
 msgstr "Ajouter aux favoris"
 
-#: Home.tsx:110
+#: src/Home.tsx:117
 msgid "Include Towns"
 msgstr "Inclure les communes"
 
-#: Search.tsx:47
+#: src/Search.tsx:55
 msgid "Search Locations"
 msgstr "Rechercher un endroit"
 
-#: server.ts:62
+#: src/server.ts:63
 msgid "Not found"
 msgstr "Rien trouvé"
 
-#: Settings.tsx:41
+#: src/Settings.tsx:23
 msgid "Paragliding"
 msgstr "Parapente"
 
-#: Settings.tsx:41
+#: src/Settings.tsx:23
 msgid "Hang-gliding"
 msgstr "Deltaplane"
 
-#: Settings.tsx:41
+#: src/Settings.tsx:23
 msgid "Sailplane"
 msgstr "Planeur"
 
-#: Settings.tsx:46
+#: src/Settings.tsx:28
 msgid "Mode"
 msgstr "Mode"
 
-#: Settings.tsx:50
+#: src/Settings.tsx:35
 msgid "Height"
 msgstr "Hauteur"
 
-#: Settings.tsx:54
+#: src/Settings.tsx:42
 msgid "Notifications"
 msgstr "Notifications"
 
-#: util.ts:39
+#: src/util.ts:72
 msgid "Permission denied"
 msgstr "Permission refusée"
 
-#: util.ts:42
-msgid "Locating..."
-msgstr "Localisation..."
+#: src/util.ts:75
+msgid "Locating"
+msgstr "Localisation"
 
 #~ msgid "Alerts"
 #~ msgstr "Alertes"

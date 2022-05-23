@@ -10,6 +10,7 @@ import { v4 as uuid } from 'uuid';
 
 import fr from '../build/fr.json';
 import en from '../build/en.json';
+import { veliHeight, veliMode } from './util';
 
 i18n.translations = { fr, en };
 i18n.fallbacks = false;
@@ -17,8 +18,8 @@ i18n.fallbacks = false;
 export class Config {
     lang: 'en' | 'fr';
     terminal: string;
-    mode: 'P' | 'H' | 'S';
-    height: 'S' | 'G';
+    mode:  veliMode;
+    height: veliHeight;
 
     constructor() {
         const locale = Localization.locale.split('-')[0];
@@ -51,12 +52,12 @@ export class Config {
         });
     }
 
-    async setMode(mode: 'P' | 'H' | 'S'): Promise<void> {
+    async setMode(mode: veliMode): Promise<void> {
         config.mode = mode;
         return this.set('@mode', mode);
     }
 
-    async setHeight(mode: 'G' | 'S'): Promise<void> {
+    async setHeight(mode: veliHeight): Promise<void> {
         config.height = mode;
         return this.set('@height', mode);
     }
@@ -68,8 +69,8 @@ export class Config {
             this.set('@terminal', id);
             return id;
         });
-        this.mode = await this.get('@mode', () => 'P') as 'P';
-        this.height = await this.get('@height', () => 'S') as 'S';
+        this.mode = await this.get('@mode', () => 'P') as veliMode;
+        this.height = await this.get('@height', () => 'S') as veliHeight;
         console.debug(this);
         if (__DEV__)
             console.log('DEBUG MODE');

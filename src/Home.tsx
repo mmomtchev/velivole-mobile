@@ -1,13 +1,12 @@
 import React from 'react';
-import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, FlatList, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
-import Checkbox from 'expo-checkbox';
 
 import i18n from 'i18n-js';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import { Location as GeoLocation, errorToast } from './util';
+import { Location as GeoLocation, errorToast, veliMode } from './util';
 import Ad from './Ad';
 import Favorites from './Favorites';
 import LastRun from './LastRun';
@@ -56,14 +55,23 @@ const styles = StyleSheet.create({
     }
 });
 
+const dbAirNames: Record<veliMode, string> = {
+    'P': 'launch_sites',
+    'H': 'launch_sites',
+    'S': 'airport_sites'
+};
+
 export default function Home(props: {
     selected: GeoJSONFeature | null;
     setSelected: React.Dispatch<React.SetStateAction<GeoJSONFeature | null>>;
+    mode: veliMode
 }) {
-    const [dbAir, setDBAir] = React.useState<IGeoDB>(() => geoInit('launch_sites'));
-    const [dummy, setDummy] = React.useState<{}>({});
-    const [dbFavs, setDBFavs] = React.useState<IGeoDB>(() => geoInit('favorites'));
+    const [dbAir] = React.useState<IGeoDB>(() => geoInit(dbAirNames[props.mode]));
+    const [dbFavs] = React.useState<IGeoDB>(() => geoInit('favorites'));
+    const [dbTowns] = React.useState<IGeoDB>(() => geoInit('places'));
+    const [includeTowns, setIncludeTowns] = React.useState<boolean>(false);
     const [selected, setSelected] = [props.selected, props.setSelected];
+    const [dummy, setDummy] = React.useState<{}>({});
 
     const buttons = React.useMemo(() => [
         {
@@ -82,7 +90,8 @@ export default function Home(props: {
         }
     ], [dbAir, selected]);
 
-    React.useEffect(() => { dbAir.load().catch(errorToast); }, [dbAir]);
+    React.useEffect(() => { dbAir.load(dbAirNames[props.mode]).catch(errorToast); }, [props.mode]);
+    React.useEffect(() => { dbTowns.load('places').catch(errorToast); }, []);
 
     return (
         <View style={styles.container}>
@@ -97,17 +106,19 @@ export default function Home(props: {
                 }, [dbFavs])}
             />
             <Location item={selected} />
-            <Search db={dbAir} onChange={(site) => setSelected(site)} />
+            <Search
+                db={dbAir} dbPlus={includeTowns ? dbTowns : undefined}
+                onChange={(site) => setSelected(site)}
+            />
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <LastRun />
                 <View style={styles.includeTowns}>
                     <Text numberOfLines={3} style={styles.includeTownsText}>
                         {i18n.t('Include Towns')}
                     </Text>
-                    <Checkbox
-                        value={false}
-                        onValueChange={() => undefined}
-                        style={{}}
+                    <Switch
+                        value={includeTowns}
+                        onValueChange={(v) => setIncludeTowns(v)}
                     />
                 </View>
             </View>

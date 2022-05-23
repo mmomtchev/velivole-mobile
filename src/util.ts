@@ -9,16 +9,20 @@ import i18n from 'i18n-js';
 import ServerAPI, { GeoJSONFeature, GeoJSONProperties } from './server';
 import { Config } from './config';
 
+export type veliMode = 'P' | 'H' | 'S';
+export type veliHeight = 'G' | 'S';
+
 export type StackParamList = {
     Home: {
         selected: GeoJSONFeature | null;
         setSelected: React.Dispatch<React.SetStateAction<GeoJSONFeature | null>>;
+        mode: veliMode;
     },
     Map: {
         selected: GeoJSONFeature | null;
         setSelected: React.Dispatch<React.SetStateAction<GeoJSONFeature | null>>;
-        mode: 'P' | 'H' | 'S';
-        AMSL: boolean;
+        mode: veliMode;
+        height: veliHeight;
     },
     Profile: {
         selected: GeoJSONFeature;
@@ -38,7 +42,7 @@ export function errorToast(err: Error): void {
     console.error(err);
 }
 
-export async function createFeature({lng, lat}: {lng: number, lat: number}): Promise<GeoJSONFeature> {
+export async function createFeature({ lng, lat }: { lng: number, lat: number; }): Promise<GeoJSONFeature> {
     let props: GeoJSONProperties | undefined;
 
     props = await ServerAPI.geoResolve('launch', lng, lat).catch(() => undefined);
@@ -68,9 +72,9 @@ export async function Location(): Promise<GeoJSONFeature> {
         throw new Error(i18n.t('Permission denied'));
     }
 
-    Toast.show(i18n.t('Locating...'), { duration: Toast.durations.LONG });
+    Toast.show(i18n.t('Locating'), { duration: Toast.durations.LONG });
 
     const location = await GeoLocation.getCurrentPositionAsync({});
 
-    return await createFeature({ lng: location.coords.longitude, lat: location.coords.latitude});
+    return await createFeature({ lng: location.coords.longitude, lat: location.coords.latitude });
 }

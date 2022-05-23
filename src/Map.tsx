@@ -5,13 +5,13 @@ import { WebView } from 'react-native-webview';
 
 import ServerAPI, { GeoJSONFeature } from './server';
 import { config } from './config';
-import { createFeature } from './util';
+import { createFeature, veliHeight, veliMode } from './util';
 
 export interface MapProps {
     selected: GeoJSONFeature | null;
     setSelected: React.Dispatch<React.SetStateAction<GeoJSONFeature | null>>;
-    mode: 'P' | 'H' | 'S';
-    height: 'S' | 'G';
+    mode: veliMode;
+    height: veliHeight;
 }
 
 // This code handles the interaction between the mobile application and the main
