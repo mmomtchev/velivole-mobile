@@ -149,7 +149,7 @@ export function init(name: string): IGeoDB {
         if (name !== 'favorites') {
             const mock: IGeoDB = {
                 op: 0,
-                search: (query: string) => fetch(`http://localhost:8008/search/${mapping[table]}/${query}`)
+                search: (query: string) => fetch(`https://data.velivole.fr/geo/search/${mapping[table]}/${query}`)
                     .then((r) => r.json()),
                 all: () => Promise.resolve([]),
                 load: (newName: string) => {
