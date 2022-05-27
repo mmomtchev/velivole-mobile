@@ -48,7 +48,7 @@
     "@types/react-dom": "^18.0.4",
     "@types/react-native": "~0.66.13",
     "@types/react-native-autocomplete-input": "^5.0.0",
-    "expo-cli": "^5.4.6",
+    "expo-cli": "^5.4.7",
     "expo-dev-client": "^0.9.6",
     "po2json": "^0.4.5",
     "react-gettext-parser": "^1.16.0",

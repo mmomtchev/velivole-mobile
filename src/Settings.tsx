@@ -1,7 +1,8 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
+import Constants from 'expo-constants';
 
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import ReactNativeSettings, { SettingsElement } from '@mmomtchev/react-native-settings';
@@ -66,6 +67,23 @@ const translateSettings = (config: Config, update: () => void) => [
                 set: (v) => config.set('@nGFS', v.toString())
             }
         ]
+    },
+    {
+        label: (
+            <Text
+                style={{
+                    fontSize: 10,
+                    fontStyle: 'italic',
+                    marginTop: 10,
+                    textAlign: 'right',
+                    marginEnd: 20
+                }}
+            >
+                {Constants.manifest?.extra?.VERSION}: build {Constants.manifest?.extra?.BUILD_HASH} from {Constants.manifest?.extra?.BUILD_DATE}
+            </Text>
+        ),
+        type: 'section',
+        elements: []
     }
 ] as SettingsElement[];
 
