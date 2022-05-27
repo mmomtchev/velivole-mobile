@@ -2,7 +2,11 @@ import * as fs from 'fs';
 import { execSync } from 'child_process';
 
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-const buildGitHash = execSync('git rev-parse --short HEAD').toString().trimEnd();
+
+const buildGitHash = process.env.EAS_BUILD_GIT_COMMIT_HASH !== undefined
+    ? process.env.EAS_BUILD_GIT_COMMIT_HASH.substring(0, 8)
+    : execSync('git rev-parse --short HEAD').toString().trimEnd();
+
 const buildDate = execSync('date -u +"%Y-%m-%d"').toString().trimEnd();
 
 export default {
