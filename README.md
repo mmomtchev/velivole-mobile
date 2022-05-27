@@ -16,7 +16,7 @@ _(Vous devez installer Expo Go du Play Store)_
 ```bash
 git clone https://github.com/mmomtchev/velivole-mobile.git
 cd velivole-mobile
-npm install
+yarn install
 # Connect your phone by USB
 # Brancher votre téléphone en USB
 expo start
