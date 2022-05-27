@@ -2,7 +2,7 @@
 
 # Application Mobile pour velivole.fr
 
-![License](https://img.shields.io/github/license/mmomtchev/velivole-react-nartive)
+![License](https://img.shields.io/github/license/mmomtchev/velivole-mobile)
 
 **Icons by IconMark from NounProject.com**
 
