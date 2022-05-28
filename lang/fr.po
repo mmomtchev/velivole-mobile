@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: Mon May 23 2022 10:53:08 GMT+0200 (Central European "
+"POT-Creation-Date: Sun May 29 2022 00:13:08 GMT+0200 (Central European "
 "Summer Time)\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: src/App.tsx:40
+#: src/App.tsx:136
 msgid "Home"
 msgstr "Accueil"
 
-#: src/App.tsx:43
+#: src/App.tsx:139
 msgid "Map"
 msgstr "Carte"
 
-#: src/App.tsx:46
+#: src/App.tsx:145
 msgid "Profile"
 msgstr "Coupe"
 
-#: src/App.tsx:49
+#: src/App.tsx:148
 msgid "Emagram"
 msgstr "Emagramme"
 
-#: src/App.tsx:52
+#: src/App.tsx:154
 msgid "Settings"
 msgstr "Réglages"
 
@@ -53,6 +53,10 @@ msgstr "Ajouter aux favoris"
 msgid "Include Towns"
 msgstr "Inclure les communes"
 
+#: src/Search.tsx:46
+msgid "Nothing found"
+msgstr "Rien trouvé"
+
 #: src/Search.tsx:55
 msgid "Search Locations"
 msgstr "Rechercher un endroit"
@@ -61,27 +65,27 @@ msgstr "Rechercher un endroit"
 msgid "Not found"
 msgstr "Rien trouvé"
 
-#: src/Settings.tsx:23
+#: src/Settings.tsx:24
 msgid "Paragliding"
 msgstr "Parapente"
 
-#: src/Settings.tsx:23
+#: src/Settings.tsx:24
 msgid "Hang-gliding"
 msgstr "Deltaplane"
 
-#: src/Settings.tsx:23
+#: src/Settings.tsx:24
 msgid "Sailplane"
 msgstr "Planeur"
 
-#: src/Settings.tsx:28
+#: src/Settings.tsx:29
 msgid "Mode"
 msgstr "Mode"
 
-#: src/Settings.tsx:35
+#: src/Settings.tsx:36
 msgid "Height"
 msgstr "Hauteur"
 
-#: src/Settings.tsx:42
+#: src/Settings.tsx:43
 msgid "Notifications"
 msgstr "Notifications"
 

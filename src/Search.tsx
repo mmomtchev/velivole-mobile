@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
 });
 
 export default function Search(props: {
-    db: IGeoDB,
-    dbPlus: IGeoDB | undefined,
-    onChange: (site: GeoJSONFeature) => void
+    db: IGeoDB;
+    dbPlus: IGeoDB | undefined;
+    onChange: (site: GeoJSONFeature) => void;
 }) {
     const [data, setData] = React.useState<GeoJSONFeature[]>([]);
     const [query, setQuery] = React.useState<string>('');
@@ -31,11 +31,10 @@ export default function Search(props: {
             props.db.search(query).then((r) => {
                 if (props.dbPlus)
                     return props.dbPlus.search(query).then((plus) => {
-                        console.log('PLUSFOUND', plus);
                         return r.concat(plus);
                     });
                 return r;
-        }).then((r) => setData(r));
+            }).then((r) => setData(r));
         } else {
             setData([]);
         }
@@ -44,6 +43,7 @@ export default function Search(props: {
     return (
         <View style={styles.search}>
             <AutocompleteDropdown
+                emptyResultText={i18n.t('Nothing found')}
                 dataSet={data.map((i) => ({
                     id: JSON.stringify(i),
                     title: siteName(i)
