@@ -40,6 +40,9 @@ export default {
                 backgroundColor: '#FFFFFF'
             }
         },
+        notification: {
+            icon: "./icon/velivole.png"
+        },
         web: {
             favicon: './icons/favicon.png'
         },
