@@ -47,6 +47,8 @@ async function registerForPushNotificationsAsync() {
 		}
 		token = (await Notifications.getDevicePushTokenAsync()).data;
 		console.debug('Obtained push notification token', token);
+
+		await Notifications.topicSubscribeAsync('modelruns');
 	} else {
 		alert('Must use physical device for Push Notifications');
 	}
