@@ -43,27 +43,27 @@ const translateSettings = (config: Config, update: () => void) => [
         label: i18n.t('Notifications'), type: 'section', elements: [
             {
                 label: 'AROME', type: 'boolean',
-                get: async () => await config.get('@nAROME', () => 'true') === 'true',
+                get: config.getNotificationsStatus.bind(config, 'AROME'),
                 set: (v) => config.set('@nAROME', v.toString())
             },
             {
                 label: 'ARPEGE', type: 'boolean',
-                get: async () => await config.get('@nARPEGE', () => 'false') === 'true',
+                get: config.getNotificationsStatus.bind(config, 'ARPEGE'),
                 set: (v) => config.set('@nARPEGE', v.toString())
             },
             {
                 label: 'ICON-D2', type: 'boolean',
-                get: async () => await config.get('@nICON-D2', () => 'false') === 'true',
+                get: config.getNotificationsStatus.bind(config, 'ICON-D2'),
                 set: (v) => config.set('@nICON-D2', v.toString())
             },
             {
                 label: 'ICON-EU', type: 'boolean',
-                get: async () => await config.get('@nICON-EU', () => 'false') === 'true',
+                get: config.getNotificationsStatus.bind(config, 'ICON-EU'),
                 set: (v) => config.set('@nICON-EU', v.toString())
             },
             {
                 label: 'GFS', type: 'boolean',
-                get: async () => await config.get('@nGFS', () => 'false') === 'true',
+                get: config.getNotificationsStatus.bind(config, 'GFS'),
                 set: (v) => config.set('@nGFS', v.toString())
             }
         ]

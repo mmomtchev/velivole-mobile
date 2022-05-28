@@ -15,10 +15,17 @@ import { veliHeight, veliMode } from './util';
 i18n.translations = { fr, en };
 i18n.fallbacks = false;
 
+const defaultNotifications: Record<string, boolean> = {
+    AROME: true,
+    ARPEGE: false,
+    'ICON-D2': false,
+    'ICON-EU': false,
+    GFS: false
+};
 export class Config {
     lang: 'en' | 'fr';
     terminal: string;
-    mode:  veliMode;
+    mode: veliMode;
     height: veliHeight;
 
     constructor() {
@@ -46,7 +53,7 @@ export class Config {
         });
     }
 
-    set(key: string, value: string): Promise<void>  {
+    set(key: string, value: string): Promise<void> {
         return AsyncStorage.setItem(key, value).catch((e) => {
             console.error(e);
         });
@@ -60,6 +67,12 @@ export class Config {
     async setHeight(mode: veliHeight): Promise<void> {
         config.height = mode;
         return this.set('@height', mode);
+    }
+
+    async getNotificationsStatus(model: string): Promise<boolean> {
+        const def = () => defaultNotifications[model].toString();
+
+        return this.get(`@n${model}`, def).then((r) => r === 'true');
     }
 
     async load() {

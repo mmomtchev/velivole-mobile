@@ -1,5 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { Platform, View, Text, StyleSheet, FlatList } from 'react-native';
+
+import { Subscription } from 'expo-modules-core';
+import * as Notifications from 'expo-notifications';
 
 import ServerAPI from './server';
 
@@ -29,8 +32,9 @@ const runs = ['AROME', 'ARPEGE', 'ICON-D2', 'ICON-EU', 'GFS'];
 
 export default function LastRuns() {
     const [lastRuns, setLastRuns] = React.useState<{ name: string, run: number; }[]>([]);
+    const responseListener = React.useRef<Subscription>();
 
-    React.useEffect(() => {
+    const update = React.useCallback(() => {
         ServerAPI.get('meteo/run/list')
             .then((list) => {
                 const runs = Object.keys(list).map((model) => ({
@@ -40,6 +44,24 @@ export default function LastRuns() {
                 setLastRuns(runs);
             });
     }, []);
+
+    React.useEffect(update, []);
+
+    if (Platform.OS === 'android') {
+        React.useEffect(() => {
+            responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+                console.debug('user clicked notification', response);
+                update();
+            });
+
+            return () => {
+                if (responseListener.current)
+                    Notifications.removeNotificationSubscription(responseListener.current);
+            };
+        }, []);
+    }
+
+    setInterval(update, 1000 * 60 * 15);
 
     return (
         <View style={styles.LastRuns}>

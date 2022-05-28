@@ -24,13 +24,44 @@ import IconProfile from '../icons/table.svg';
 import IconEmagram from '../icons/chart.svg';
 import IconSettings from '../icons/settings.svg';
 
+const topicModelMessage = __DEV__ ? 'react-newrun-test' : 'react-newrun';
+
+type notificationModelMessage = {
+	channelId: string | null,
+	remoteMessage: {
+		data: {
+			body: string;
+			model: string;
+			run: string;
+			type: string;
+			title: string;
+		};
+		from: string;
+	};
+};
+
 Notifications.setNotificationHandler({
-	handleNotification: async () => ({
-		shouldShowAlert: true,
-		shouldPlaySound: true,
-		shouldSetBadge: true,
-	})
+	handleNotification: async (notification) => {
+		console.debug('received notification', notification);
+		const remoteMessage = (notification.request.trigger as unknown as notificationModelMessage).remoteMessage;
+		if (remoteMessage.from === `/topics/${topicModelMessage}`) {
+			if (await config.getNotificationsStatus(remoteMessage.data.model)) {
+				await Notifications.dismissAllNotificationsAsync();
+				return {
+					shouldShowAlert: true,
+					shouldPlaySound: true,
+					shouldSetBadge: true,
+				};
+			}
+		}
+		return {
+			shouldShowAlert: false,
+			shouldPlaySound: false,
+			shouldSetBadge: false,
+		};
+	}
 });
+
 
 async function registerForPushNotificationsAsync() {
 	let token;
@@ -48,7 +79,7 @@ async function registerForPushNotificationsAsync() {
 		token = (await Notifications.getDevicePushTokenAsync()).data;
 		console.debug('Obtained push notification token', token);
 
-		await Notifications.topicSubscribeAsync('modelruns');
+		await Notifications.topicSubscribeAsync(topicModelMessage);
 	} else {
 		alert('Must use physical device for Push Notifications');
 	}
@@ -80,7 +111,6 @@ export default function App() {
 
 	const [expoPushToken, setExpoPushToken] = React.useState<string | undefined>();
 	const notificationListener = React.useRef<Subscription>();
-	const responseListener = React.useRef<Subscription>();
 
 	// Push notifications are available only on Android as only Android
 	// supports mass notifications to a topic
@@ -89,18 +119,12 @@ export default function App() {
 			registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
 
 			notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-				console.debug('received notification', notification);
-			});
-
-			responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-				console.debug('user clicked notification', response);
+				console.log('processed notification', notification);
 			});
 
 			return () => {
 				if (notificationListener.current)
 					Notifications.removeNotificationSubscription(notificationListener.current);
-				if (responseListener.current)
-					Notifications.removeNotificationSubscription(responseListener.current);
 			};
 		}, []);
 	}
