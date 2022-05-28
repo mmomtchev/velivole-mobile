@@ -36,7 +36,7 @@ export default {
             package: 'fr.velivole.reactnative',
             googleServicesFile: './assets/google-services.json',
             adaptiveIcon: {
-                foregroundImage: './icons/velivole.png',
+                foregroundImage: './icons/velivole-adaptive.png',
                 backgroundColor: '#FFFFFF'
             }
         },
