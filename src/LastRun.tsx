@@ -34,36 +34,36 @@ export default function LastRuns() {
     const [lastRuns, setLastRuns] = React.useState<{ name: string, run: number; }[]>([]);
     const responseListener = React.useRef<Subscription>();
 
-    const update = React.useCallback(() => {
-        ServerAPI.get('meteo/run/list')
-            .then((list) => {
-                const runs = Object.keys(list).map((model) => ({
-                    name: model,
-                    run: (new Date(Object.keys(list[model] as Record<string, unknown>)[0])).getUTCHours()
-                })).filter((run) => !isNaN(run.run));
-                setLastRuns(runs);
-            });
-    }, []);
-
     React.useEffect(() => {
-        update();
-        const timer = setInterval(update, 1000 * 60 * 15);
-        return () => clearInterval(timer);
-    }, []);
+        const update = () => {
+            ServerAPI.get('meteo/run/list')
+                .then((list) => {
+                    const runs = Object.keys(list).map((model) => ({
+                        name: model,
+                        run: (new Date(Object.keys(list[model] as Record<string, unknown>)[0])).getUTCHours()
+                    })).filter((run) => !isNaN(run.run));
+                    setLastRuns(runs);
+                });
+        };
 
-    if (Platform.OS === 'android') {
-        React.useEffect(() => {
+        if (Platform.OS === 'android') {
             responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
                 console.debug('user clicked notification', response);
                 update();
             });
+        }
 
-            return () => {
-                if (responseListener.current)
-                    Notifications.removeNotificationSubscription(responseListener.current);
-            };
-        }, []);
-    }
+        update();
+        const timer = setInterval(update, 1000 * 60 * 15);
+
+        return () => {
+            clearInterval(timer);
+            if (responseListener.current) {
+                Notifications.removeNotificationSubscription(responseListener.current);
+                responseListener.current = undefined;
+            }
+        };
+    }, []);
 
     return (
         <View style={styles.LastRuns}>
