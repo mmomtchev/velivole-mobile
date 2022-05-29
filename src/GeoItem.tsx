@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     Title: {
-        fontSize: 24,
+        fontSize: 18,
         fontWeight: '900',
-        color: 'gray',
+        color: '#606060',
         overflow: 'hidden'
     },
     Coords: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export function GeoItem(props: { item: GeoJSONFeature | null }) {
+export function GeoItem(props: { item: GeoJSONFeature | null; }) {
     return (
         <View style={styles.Item}>
             <Text numberOfLines={1} style={styles.Title} ellipsizeMode={'clip'}>

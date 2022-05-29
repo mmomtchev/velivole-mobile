@@ -8,7 +8,7 @@ import { GeoJSONFeature } from './server';
 const styles = StyleSheet.create({
     List: {
         flex: 1,
-        backgroundColor: 'lightblue',
+        backgroundColor: '#bbdefb',
         padding: 5,
         margin: 5,
         width: '98%'
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     }
 });
 
-function Item(props: { item: GeoJSONFeature, onSelect: () => void, onDelete: () => void }) {
+function Item(props: { item: GeoJSONFeature, onSelect: () => void, onDelete: () => void; }) {
     return (
         <TouchableOpacity style={styles.favItem} onPress={props.onSelect}>
             <GeoItem item={props.item} />
@@ -52,8 +52,8 @@ function Item(props: { item: GeoJSONFeature, onSelect: () => void, onDelete: () 
 export default function Favorites(props: {
     db: IGeoDB,
     dummy: {},
-    onSelect: (item: GeoJSONFeature) => void
-    onDelete: (item: GeoJSONFeature) => void
+    onSelect: (item: GeoJSONFeature) => void;
+    onDelete: (item: GeoJSONFeature) => void;
 }) {
     const [favorites, setFavorites] = React.useState<GeoJSONFeature[]>([]);
 
