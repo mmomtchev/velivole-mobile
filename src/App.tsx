@@ -81,8 +81,6 @@ async function registerForPushNotificationsAsync() {
 		console.debug('Obtained push notification token', token);
 
 		await Notifications.topicSubscribeAsync(topicModelMessage);
-	} else {
-		alert('Must use physical device for Push Notifications');
 	}
 
 	if (Platform.OS === 'android') {
