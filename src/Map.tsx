@@ -36,7 +36,7 @@ export default class Map extends React.PureComponent<MapProps> {
                 ${this.props.selected ? `selectedLng: ${this.props.selected.geometry.coordinates[0]},` : ''}
                 ${this.props.selected ? `selectedLat: ${this.props.selected.geometry.coordinates[1]},` : ''}
                 ${this.props.selected ? `centerLng: ${this.props.selected.geometry.coordinates[0]},` : ''}
-                ${this.props.selected ? `centerLatLat: ${this.props.selected.geometry.coordinates[1]},` : ''}
+                ${this.props.selected ? `centerLat: ${this.props.selected.geometry.coordinates[1]},` : ''}
                 modeAlt: ${this.props.height === 'S' ? 'true' : 'false'},
                 mode: '${this.props.mode}',
                 locale: '${config.lang}'
