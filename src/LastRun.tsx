@@ -45,7 +45,11 @@ export default function LastRuns() {
             });
     }, []);
 
-    React.useEffect(update, []);
+    React.useEffect(() => {
+        update();
+        const timer = setInterval(update, 1000 * 60 * 15);
+        return () => clearInterval(timer);
+    }, []);
 
     if (Platform.OS === 'android') {
         React.useEffect(() => {
@@ -60,8 +64,6 @@ export default function LastRuns() {
             };
         }, []);
     }
-
-    setInterval(update, 1000 * 60 * 15);
 
     return (
         <View style={styles.LastRuns}>
