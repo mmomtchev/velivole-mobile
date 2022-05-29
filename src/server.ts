@@ -35,7 +35,7 @@ export type GeoJSONCollection = {
 
 
 export default class ServerAPI {
-    static terminal: string = '';
+    static terminal = '';
 
     static get(url: string): Promise<Record<string, unknown>> {
         return fetch(ServerAPI.getUrl(url), {

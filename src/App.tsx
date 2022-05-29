@@ -11,7 +11,7 @@ import * as Linking from 'expo-linking';
 import { RootSiblingParent } from 'react-native-root-siblings';
 import i18n from 'i18n-js';
 
-import { createFeature, Tabs } from './util';
+import { createFeature, errorToast, Tabs } from './util';
 import Home from './Home';
 import Map from './Map';
 import Aux from './Aux';
@@ -80,7 +80,8 @@ async function registerForPushNotificationsAsync() {
 		token = (await Notifications.getDevicePushTokenAsync()).data;
 		console.debug('Obtained push notification token', token);
 
-		await Notifications.topicSubscribeAsync(topicModelMessage);
+		await Notifications.topicSubscribeAsync(topicModelMessage)
+			.catch((e) => errorToast(new Error('Push notifications require an official build')));
 	}
 
 	if (Platform.OS === 'android') {
@@ -116,27 +117,18 @@ function tabOptions(title: string, Icon: typeof IconHome): BottomTabNavigationOp
 
 export default function App() {
 	const [selected, setSelected] = React.useState<GeoJSONFeature | null>(null);
-	const [dummy, setDummy] = React.useState<{}>({});
+	const [dummy, setDummy] = React.useState<Record<string, never>>({});
 
 	const [expoPushToken, setExpoPushToken] = React.useState<string | undefined>();
 	const notificationListener = React.useRef<Subscription>();
 
 	// Push notifications are available only on Android as only Android
 	// supports mass notifications to a topic
-	if (Platform.OS === 'android') {
-		React.useEffect(() => {
+	React.useEffect(() => {
+		if (Platform.OS === 'android') {
 			registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
-
-			notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-				console.log('processed notification', notification);
-			});
-
-			return () => {
-				if (notificationListener.current)
-					Notifications.removeNotificationSubscription(notificationListener.current);
-			};
-		}, []);
-	}
+		}
+	}, []);
 
 	// Did the user launch the application by opening a supported URL
 	React.useEffect(() => {

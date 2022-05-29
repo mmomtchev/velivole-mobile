@@ -88,6 +88,6 @@ export class Config {
         if (__DEV__)
             console.log('DEBUG MODE');
     }
-};
+}
 
 export const config = new Config();

@@ -51,7 +51,7 @@ function Item(props: { item: GeoJSONFeature, onSelect: () => void, onDelete: () 
 
 export default function Favorites(props: {
     db: IGeoDB,
-    dummy: {},
+    dummy: Record<string, never>,
     onSelect: (item: GeoJSONFeature) => void;
     onDelete: (item: GeoJSONFeature) => void;
 }) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 import ServerAPI from './server';
 
@@ -16,16 +16,17 @@ const styles = StyleSheet.create({
 
 export default function Ad({ }) {
     const [url, setUrl] = React.useState<string | undefined>(undefined);
-    const [lastUpdate, setUpdate] = React.useState<Date>(new Date());
+    const [lastUpdate, setUpdate] = React.useState<number>(Date.now());
 
     React.useEffect(() => {
-        if (url === undefined || lastUpdate.getTime() + 120 * 60 * 1000 < Date.now()) {
+        if (url === undefined || lastUpdate + 120 * 1000 < Date.now()) {
             ServerAPI.getAd().then((ad) => {
                 console.debug('Load new ad', ad);
                 setUrl(ServerAPI.getUrl(ad.ad_img));
-            })
+                setUpdate(Date.now());
+            });
         }
-    }, []);
+    }, [lastUpdate, url]);
 
     return <Image style={styles.Ad} source={{ uri: url }} />;
 }

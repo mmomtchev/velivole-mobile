@@ -71,7 +71,7 @@ export default function Home(props: {
     const [dbTowns] = React.useState<IGeoDB>(() => geoInit('places'));
     const [includeTowns, setIncludeTowns] = React.useState<boolean>(false);
     const [selected, setSelected] = [props.selected, props.setSelected];
-    const [dummy, setDummy] = React.useState<{}>({});
+    const [dummy, setDummy] = React.useState<Record<string, never>>({});
 
     const buttons = React.useMemo(() => [
         {
@@ -88,10 +88,10 @@ export default function Home(props: {
             },
             disabled: selected === null
         }
-    ], [dbAir, selected]);
+    ], [selected, dbFavs, setSelected]);
 
-    React.useEffect(() => { dbAir.load(dbAirNames[props.mode]).catch(errorToast); }, [props.mode]);
-    React.useEffect(() => { dbTowns.load('places').catch(errorToast); }, []);
+    React.useEffect(() => { dbAir.load(dbAirNames[props.mode]).catch(errorToast); }, [dbAir, props.mode]);
+    React.useEffect(() => { dbTowns.load('places').catch(errorToast); }, [dbTowns]);
 
     return (
         <View style={styles.container}>

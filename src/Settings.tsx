@@ -91,7 +91,7 @@ export default function Settings(props: {
     config: Config;
     update: () => void;
 }) {
-    const settings = React.useMemo(() => translateSettings(props.config, props.update), [props.config.lang]);
+    const settings = React.useMemo(() => translateSettings(props.config, props.update), [props.config, props.update]);
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor='#007bff' style="dark" hidden={false} />

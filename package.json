@@ -9,7 +9,8 @@
     "eject": "expo eject",
     "i18n:extract": "react-gettext-parser -c react-gettext-parser.config.js --output build/messages.pot 'src/{*.ts,*.tsx}'",
     "i18n:gen": "po2json -f mf lang/fr.po build/fr.json && po2json -f mf --fallback-to-msgid build/messages.pot build/en.json",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "lint": "eslint --fix src/*.ts*"
   },
   "dependencies": {
     "@expo/webpack-config": "~0.16.2",
@@ -54,6 +55,12 @@
     "@types/react-dom": "^18.0.4",
     "@types/react-native": "~0.66.13",
     "@types/react-native-autocomplete-input": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "expo-cli": "^5.4.7",
     "expo-dev-client": "^0.9.6",
     "patch-package": "^6.4.7",

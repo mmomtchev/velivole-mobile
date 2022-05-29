@@ -38,7 +38,7 @@ export default function Search(props: {
         } else {
             setData([]);
         }
-    }, [query, props.db]);
+    }, [query, props.db, props.dbPlus]);
 
     return (
         <View style={styles.search}>

@@ -67,7 +67,7 @@ export async function createFeature({ lng, lat }: { lng: number, lat: number; })
 }
 
 export async function Location(): Promise<GeoJSONFeature> {
-    let { status } = await GeoLocation.requestForegroundPermissionsAsync();
+    const { status } = await GeoLocation.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
         throw new Error(i18n.t('Permission denied'));
     }

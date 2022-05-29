@@ -10,6 +10,7 @@ import i18n from 'i18n-js';
 
 import ServerAPI, { GeoJSONCollection, GeoJSONFeature } from './server';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const placesAsset = require('../assets/places.db');
 
 export function siteName(site: GeoJSONFeature): string {
