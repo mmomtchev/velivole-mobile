@@ -43,7 +43,6 @@ export default class Map extends React.PureComponent<MapProps> {
             };
             true;
             `;
-
     }
 
     componentDidUpdate() {
@@ -69,7 +68,7 @@ export default class Map extends React.PureComponent<MapProps> {
                     ref={(r) => (this.webref = r)}
                     cache={__DEV__ ? false : true}
                     source={{ uri: url }}
-                    injectedJavaScript={this.sessionCode}
+                    injectedJavaScriptBeforeContentLoaded={this.sessionCode}
                     pullToRefreshEnabled={true}
                     // 3) Receiving session updates from the web application which happens here
                     onMessage={(event) => {
