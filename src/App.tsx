@@ -101,8 +101,8 @@ async function decodeURL(url: string | null): Promise<GeoJSONFeature | null> {
 	if (url === null) return null;
 
 	const { hostname, path, queryParams } = Linking.parse(url);
-	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat;
-	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long;
+	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat ?? (path ? path.split(',')[0] : undefined);
+	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long ?? (path ? path.split(',')[1] : undefined);
 	console.debug('Opening', hostname, path, lat, lng, queryParams);
 	return await createFeature({ lng, lat });
 }

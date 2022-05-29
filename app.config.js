@@ -70,6 +70,9 @@ export default {
                             host: 'meteo.guru',
                             pathPrefix: '*'
                         },
+                        {
+                            scheme: 'geo'
+                        },
                     ],
                     category: [
                         'BROWSABLE',
