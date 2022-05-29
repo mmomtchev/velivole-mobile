@@ -64,7 +64,7 @@ const dbAirNames: Record<veliMode, string> = {
 export default function Home(props: {
     selected: GeoJSONFeature | null;
     setSelected: React.Dispatch<React.SetStateAction<GeoJSONFeature | null>>;
-    mode: veliMode
+    mode: veliMode;
 }) {
     const [dbAir] = React.useState<IGeoDB>(() => geoInit(dbAirNames[props.mode]));
     const [dbFavs] = React.useState<IGeoDB>(() => geoInit('favorites'));

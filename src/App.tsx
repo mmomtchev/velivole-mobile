@@ -6,11 +6,12 @@ import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { Subscription } from 'expo-modules-core';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
+import * as Linking from 'expo-linking';
 
 import { RootSiblingParent } from 'react-native-root-siblings';
 import i18n from 'i18n-js';
 
-import { Tabs } from './util';
+import { createFeature, Tabs } from './util';
 import Home from './Home';
 import Map from './Map';
 import Aux from './Aux';
@@ -96,6 +97,16 @@ async function registerForPushNotificationsAsync() {
 	return token;
 }
 
+async function decodeURL(url: string | null): Promise<GeoJSONFeature | null> {
+	if (url === null) return null;
+
+	const { hostname, path, queryParams } = Linking.parse(url);
+	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat;
+	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long;
+	console.debug('Opening', hostname, path, lat, lng, queryParams);
+	return await createFeature({ lng, lat });
+}
+
 function tabOptions(title: string, Icon: typeof IconHome): BottomTabNavigationOptions {
 	return {
 		headerShown: false,
@@ -129,12 +140,18 @@ export default function App() {
 		}, []);
 	}
 
+	// Did the user launch the application by opening a supported URL
+	React.useEffect(() => {
+		Linking.getInitialURL().then(decodeURL).then((f) => setSelected(f));
+		Linking.addEventListener('url', (ev: Linking.EventType) => decodeURL(ev.url).then((f) => setSelected(f)));
+	}, []);
+
 	return (
 		<RootSiblingParent>
 			<NavigationContainer>
 				<Tabs.Navigator initialRouteName='Home' backBehavior='initialRoute'>
 					<Tabs.Screen name='Home' options={tabOptions(i18n.t('Home'), IconHome)}>
-						{() => <Home selected={selected} setSelected={setSelected} mode={config.mode} />}
+						{({ navigation }) => <Home selected={selected} setSelected={setSelected} mode={config.mode} />}
 					</Tabs.Screen>
 					<Tabs.Screen name='Map' options={tabOptions(i18n.t('Map'), IconMap)}>
 						{() => <Map selected={selected} setSelected={setSelected} mode={config.mode} height={config.height} />}

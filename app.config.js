@@ -15,6 +15,7 @@ export default {
         slug: 'velivole',
         version: '1.0.0',
         orientation: 'portrait',
+        scheme: 'velivole',
         icon: './icons/velivole.png',
         userInterfaceStyle: 'light',
         splash: {
@@ -30,7 +31,13 @@ export default {
         ],
         ios: {
             bundleIdentifier: 'fr.velivole.reactnative',
-            supportsTablet: true
+            supportsTablet: true,
+            associatedDomains: [
+                'applinks:www.velivole.fr',
+                'applinks:velivole.fr',
+                'applinks:www.meteo.guru',
+                'applinks:megeo.guru'
+            ]
         },
         android: {
             package: 'fr.velivole.reactnative',
@@ -38,10 +45,41 @@ export default {
             adaptiveIcon: {
                 foregroundImage: './icons/velivole-adaptive.png',
                 backgroundColor: '#FFFFFF'
-            }
+            },
+            intentFilters: [
+                {
+                    action: 'VIEW',
+                    data: [
+                        {
+                            scheme: 'https',
+                            host: '*.velivole.fr',
+                            pathPrefix: '*'
+                        },
+                        {
+                            scheme: 'https',
+                            host: 'velivole.fr',
+                            pathPrefix: '*'
+                        },
+                        {
+                            scheme: 'https',
+                            host: '*.meteo.guru',
+                            pathPrefix: '*'
+                        },
+                        {
+                            scheme: 'https',
+                            host: 'meteo.guru',
+                            pathPrefix: '*'
+                        },
+                    ],
+                    category: [
+                        'BROWSABLE',
+                        'DEFAULT'
+                    ]
+                }
+            ]
         },
         notification: {
-            icon: "./icon/velivole.png"
+            icon: './icons/velivole.png'
         },
         web: {
             favicon: './icons/favicon.png'

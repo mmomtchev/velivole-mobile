@@ -1,0 +1,28 @@
+{
+    "applinks": {
+        "details": [
+            {
+                "appIDs": [
+                    "fr.velivole.reactnative"
+                ],
+                "components": [
+                    {
+                        "/": "/profile",
+                        "comment": "Profile page"
+                    },
+                    {
+                        "/": "/emagram",
+                        "comment": "Emagram page"
+                    },
+                    {
+                        "/": "/",
+                        "comment": "Map page"
+                    }
+                ],
+                "paths": [
+                    "*"
+                ]
+            }
+        ]
+    }
+}

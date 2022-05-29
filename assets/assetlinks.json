@@ -1,0 +1,26 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "fr.velivole.velivole",
+            "sha256_cert_fingerprints": [
+                "c4:62:c6:5f:f0:14:aa:be:ec:0b:bd:19:fc:1b:e1:fe:83:3c:0f:0c:8e:be:e6:c6:e2:b8:0a:3b:90:31:86:b4"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "fr.velivole.reactnative",
+            "sha256_cert_fingerprints": [
+                "c4:62:c6:5f:f0:14:aa:be:ec:0b:bd:19:fc:1b:e1:fe:83:3c:0f:0c:8e:be:e6:c6:e2:b8:0a:3b:90:31:86:b4"
+            ]
+        }
+    }
+]
