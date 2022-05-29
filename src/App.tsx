@@ -81,7 +81,7 @@ async function registerForPushNotificationsAsync() {
 		console.debug('Obtained push notification token', token);
 
 		await Notifications.topicSubscribeAsync(topicModelMessage)
-			.catch((e) => errorToast(new Error('Push notifications require an official build')));
+			.catch(() => errorToast(new Error('Push notifications require an official build')));
 	}
 
 	if (Platform.OS === 'android') {
@@ -102,7 +102,9 @@ async function decodeURL(url: string | null): Promise<GeoJSONFeature | null> {
 	const { hostname, path, queryParams } = Linking.parse(url);
 	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat ?? (path ? path.split(',')[0] : undefined);
 	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long ?? (path ? path.split(',')[1] : undefined);
-	console.debug('Opening', hostname, path, lat, lng, queryParams);
+	console.debug('Link URL', hostname, path, lat, lng, queryParams);
+	if (lng === undefined && lat === undefined)
+		return null;
 	return await createFeature({ lng, lat });
 }
 
