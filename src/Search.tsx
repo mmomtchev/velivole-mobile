@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown';
 import i18n from 'i18n-js';
@@ -41,22 +41,26 @@ export default function Search(props: {
     }, [query, props.db, props.dbPlus]);
 
     return (
-        <View style={styles.search}>
-            <AutocompleteDropdown
-                emptyResultText={i18n.t('Nothing found')}
-                dataSet={data.map((i) => ({
-                    id: JSON.stringify(i),
-                    title: siteName(i)
-                }))}
-                onClear={() => setQuery('')}
-                onChangeText={(text) => setQuery(text)}
-                textInputProps={{
-                    style: styles.autoCompleteInput,
-                    placeholder: i18n.t('Search Locations')
-                }}
-                inputContainerStyle={styles.autoCompleteInput}
-                onSelectItem={(item) => item && props.onChange(JSON.parse(item.id))}
-            />
-        </View>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        >
+            <View style={styles.search}>
+                <AutocompleteDropdown
+                    emptyResultText={i18n.t('Nothing found')}
+                    dataSet={data.map((i) => ({
+                        id: JSON.stringify(i),
+                        title: siteName(i)
+                    }))}
+                    onClear={() => setQuery('')}
+                    onChangeText={(text) => setQuery(text)}
+                    textInputProps={{
+                        style: styles.autoCompleteInput,
+                        placeholder: i18n.t('Search Locations')
+                    }}
+                    inputContainerStyle={styles.autoCompleteInput}
+                    onSelectItem={(item) => item && props.onChange(JSON.parse(item.id))}
+                />
+            </View>
+        </KeyboardAvoidingView>
     );
 }
