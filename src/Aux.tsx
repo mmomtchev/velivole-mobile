@@ -16,7 +16,11 @@ export default function Aux(props: {
 
     return (
         <View style={{ flex: 1, paddingTop: 5 }} >
-            <WebView source={{ uri }} pullToRefreshEnabled={true} />
+            <WebView
+                source={{ uri }}
+                originWhitelist={['*']}
+                pullToRefreshEnabled={true}
+            />
         </View>
     );
 }
