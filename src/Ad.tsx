@@ -16,17 +16,17 @@ const styles = StyleSheet.create({
 
 export default function Ad({ }) {
     const [url, setUrl] = React.useState<string | undefined>(undefined);
-    const [lastUpdate, setUpdate] = React.useState<number>(Date.now());
 
     React.useEffect(() => {
-        if (url === undefined || lastUpdate + 120 * 1000 < Date.now()) {
+        const timer = setInterval(() => {
             ServerAPI.getAd().then((ad) => {
                 console.debug('Load new ad', ad);
                 setUrl(ServerAPI.getUrl(ad.ad_img));
-                setUpdate(Date.now());
             });
-        }
-    }, [lastUpdate, url]);
+        }, 1000 * 120);
+
+        return () => clearInterval(timer);
+    }, []);
 
     return <Image style={styles.Ad} source={{ uri: url }} />;
 }
