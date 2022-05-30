@@ -1608,10 +1608,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mmomtchev/react-native-settings@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@mmomtchev/react-native-settings/-/react-native-settings-1.0.3.tgz"
-  integrity sha512-gmlquJwQufkFQhsnfpKM1a/Ns2OligNRbytnWDP6k9vk+no9RyR/Fi+OlM3kAZcLk/6Pu4wyl0TG/U1atb9kng==
+"@mmomtchev/react-native-settings@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@mmomtchev/react-native-settings/-/react-native-settings-1.0.5.tgz#b69fa4efa80913b052fd92d0c730c10fda3ee122"
+  integrity sha512-JNF0KddVOmpM2vb4RW1dYihYCQ/B+mMXxMlccv/dFYsVM4AWjX03vtYqz4CcGcmxM7VOb07pLPxSLf91Wos3Sw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
