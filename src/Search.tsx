@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown';
 import i18n from 'i18n-js';

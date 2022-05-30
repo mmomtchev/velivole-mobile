@@ -10,7 +10,7 @@
     "i18n:extract": "react-gettext-parser -c react-gettext-parser.config.js --output build/messages.pot 'src/{*.ts,*.tsx}'",
     "i18n:gen": "po2json -f mf lang/fr.po build/fr.json && po2json -f mf --fallback-to-msgid build/messages.pot build/en.json",
     "i18n": "yarn i18n:extract && yarn i18n:gen",
-    "postinstall": "patch-package && mkdir build && yarn i18n",
+    "postinstall": "patch-package && mkdir -p build && yarn i18n",
     "lint": "eslint --fix src/*.ts*"
   },
   "dependencies": {
@@ -38,7 +38,6 @@
     "react-dom": "^17.0.2",
     "react-native": "0.68.2",
     "react-native-autocomplete-dropdown": "^2.0.1",
-    "react-native-autocomplete-input": "^5.1.0",
     "react-native-get-random-values": "^1.8.0",
     "react-native-root-toast": "https://github.com/mmomtchev/react-native-root-toast#deprected-prop-types",
     "react-native-safe-area-context": "4.2.4",
