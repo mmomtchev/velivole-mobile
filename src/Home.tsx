@@ -82,8 +82,8 @@ export default function Home(props: {
         {
             title: i18n.t('Add to Favorites'), onPress: () => {
                 if (selected) {
-                    dbFavs.add(selected);
-                    setDummy({});
+                    dbFavs.add(selected)
+                        .then(() => setDummy({}));
                 }
             },
             disabled: selected === null
@@ -101,8 +101,8 @@ export default function Home(props: {
             <Favorites
                 dummy={dummy} db={dbFavs} onSelect={setSelected}
                 onDelete={React.useCallback((item: GeoJSONFeature) => {
-                    dbFavs.delete(item);
-                    setDummy({});
+                    dbFavs.delete(item)
+                        .then(() => setDummy({}));
                 }, [dbFavs])}
             />
             <Location item={selected} />
