@@ -31,14 +31,14 @@ const translateSettings = (config: Config, update: () => void) => {
             get: config.get.bind(config, '@mode', () => 'P'), set: (v) => {
                 update();
                 return config.setMode(v as veliMode);
-            }
+            }, title: i18n.t('Mode')
         },
         {
             label: i18n.t('Height'), type: 'enum', values: ['G', 'S'], display: (v: string) => heightLabel[v as veliHeight],
             get: config.get.bind(config, '@height', () => 'S'), set: (v) => {
                 update();
                 return config.setHeight(v as veliHeight);
-            }
+            }, title: i18n.t('Height')
         }
     ] as SettingsElement[];
 

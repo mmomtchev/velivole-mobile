@@ -1,5 +1,3 @@
-import React from 'react';
-
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 

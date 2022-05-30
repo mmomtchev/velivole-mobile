@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import { WebView } from 'react-native-webview';
 
-import ServerAPI, { GeoJSONFeature } from './server';
+import { GeoJSONFeature } from './server';
 
 export default function Aux(props: {
     selected: GeoJSONFeature;

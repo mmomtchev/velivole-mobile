@@ -1,14 +1,16 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 
+import { StatusBar } from 'expo-status-bar';
 import { Subscription } from 'expo-modules-core';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import * as Linking from 'expo-linking';
 
 import { RootSiblingParent } from 'react-native-root-siblings';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import i18n from 'i18n-js';
 
 import { createFeature, errorToast, Tabs } from './util';
@@ -141,6 +143,8 @@ export default function App() {
 	return (
 		<RootSiblingParent>
 			<NavigationContainer>
+				<StatusBar backgroundColor='#007bff' style="dark" hidden={false} />
+				<View style={{ height: getStatusBarHeight() }} />
 				<Tabs.Navigator initialRouteName='Home' backBehavior='initialRoute'>
 					<Tabs.Screen name='Home' options={tabOptions(i18n.t('Home'), IconHome)}>
 						{({ navigation }) => <Home selected={selected} setSelected={setSelected} mode={config.mode} />}
