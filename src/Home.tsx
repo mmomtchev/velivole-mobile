@@ -1,10 +1,7 @@
 import React from 'react';
 import { Dimensions, FlatList, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 
-import { StatusBar } from 'expo-status-bar';
-
 import i18n from 'i18n-js';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 import { Location as GeoLocation, errorToast, veliMode } from './util';
 import Ad from './Ad';
@@ -95,8 +92,6 @@ export default function Home(props: {
 
     return (
         <View style={styles.container}>
-            <StatusBar backgroundColor='#007bff' style="dark" hidden={false} />
-            <View style={{ height: getStatusBarHeight() }} />
             <Ad />
             <Favorites
                 dummy={dummy} db={dbFavs} onSelect={setSelected}
