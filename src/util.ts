@@ -49,7 +49,7 @@ export async function createFeature({ lng, lat }: { lng: number, lat: number; })
     if (!props)
         props = await ServerAPI.geoResolve('place', lng, lat).catch(() => undefined);
     if (!props)
-        props = { n: 'Unknown' };
+        props = { n: i18n.t('Not found') };
 
     return {
         type: 'Feature',

@@ -59,7 +59,7 @@ export default class ServerAPI {
     static geoResolve(db: string, lng: number, lat: number): Promise<GeoJSONProperties> {
         return ServerAPI.get(`geo/locate/${db}/${lng}/${lat}`)
             .then((r) => {
-                if (r.d as number > 5000)
+                if (r.d === undefined || r.d as number > 5000)
                     throw new Error(i18n.t('Not found'));
                 return r as GeoJSONProperties;
             });
