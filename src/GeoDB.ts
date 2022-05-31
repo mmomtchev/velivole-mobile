@@ -71,10 +71,10 @@ export class GeoDB implements GeoDB {
         }
     }
 
-
     async inject(geo: GeoJSONCollection): Promise<void> {
-        await this.exec(`DROP TABLE IF EXISTS ${this.table};`, [], true);
         await this.exec(`CREATE TABLE IF NOT EXISTS ${this.table} (n TEXT, s TEXT, t TEXT, o TEXT, lng NUMBER, lat NUMBER);`, [], true);
+        await this.exec('BEGIN');
+        await this.exec(`DELETE FROM ${this.table}`);
         for (const item of geo.features) {
             if (!item.geometry) continue;
             await this.exec(`INSERT INTO ${this.table} (n, s, t, o, lng, lat) VALUES (?, ?, ?, ?, ?, ?);`,
@@ -87,6 +87,7 @@ export class GeoDB implements GeoDB {
                     item.geometry.coordinates[1]
                 ], true);
         }
+        await this.exec('COMMIT');
     }
 
     async all(): Promise<GeoJSONFeature[]> {
