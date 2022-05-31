@@ -1,0 +1,24 @@
+{
+  "project_info": {
+    "project_number": "52543805309",
+    "firebase_url": "https://velivole-218210.firebaseio.com",
+    "project_id": "velivole-218210",
+    "storage_bucket": "velivole-218210.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52543805309:android:3c40713caaf24e5bb69e14",
+        "android_client_info": {
+          "package_name": "fr.velivole.reactnative"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeKb-OpWzevioX1M8Q5Qz1c71Hju-jV9A"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

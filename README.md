@@ -18,8 +18,8 @@ _(Vous devez installer Expo Go du Play Store)_
 git clone https://github.com/mmomtchev/velivole-mobile.git
 cd velivole-mobile
 yarn install
-# Push notifications from Firebase Cloud Messaging require a crypto key and won't work in your version
-# Les notifications à distance de Firebase Cloud Messaging nécessitent une clé et ne vont pas marcher
+# Push notifications from Firebase Cloud Messaging require an expo-notifications patch and won't work
+# Les notifications à distance de Firebase Cloud Messaging nécessitent un patch pour expo-notifications et ne vont pas marcher
 touch assets/google-services.json
 # Connect your phone by USB
 # Brancher votre téléphone en USB

@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 
 import { StatusBar } from 'expo-status-bar';
-import { Subscription } from 'expo-modules-core';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import * as Linking from 'expo-linking';
@@ -83,7 +82,7 @@ async function registerForPushNotificationsAsync() {
 		console.debug('Obtained push notification token', token);
 
 		await Notifications.topicSubscribeAsync(topicModelMessage)
-			.catch(() => errorToast(new Error('Push notifications require an official build')));
+			.catch(() => errorToast(new Error('Push notifications require a full native build')));
 	}
 
 	if (Platform.OS === 'android') {
@@ -124,7 +123,6 @@ export default function App() {
 	const [dummy, setDummy] = React.useState<Record<string, never>>({});
 
 	const [expoPushToken, setExpoPushToken] = React.useState<string | undefined>();
-	const notificationListener = React.useRef<Subscription>();
 
 	// Push notifications are available only on Android as only Android
 	// supports mass notifications to a topic
