@@ -135,7 +135,9 @@ export default function App() {
 	// Did the user launch the application by opening a supported URL
 	React.useEffect(() => {
 		Linking.getInitialURL().then(decodeURL).then((f) => setSelected(f));
-		Linking.addEventListener('url', (ev: Linking.EventType) => decodeURL(ev.url).then((f) => setSelected(f)));
+		const handler = (ev: Linking.EventType) => decodeURL(ev.url).then((f) => setSelected(f));
+		Linking.addEventListener('url', handler);
+		return () => Linking.removeEventListener('url', handler);
 	}, []);
 
 	return (
