@@ -18,12 +18,14 @@ export default function Ad({ }) {
     const [url, setUrl] = React.useState<string | undefined>(undefined);
 
     React.useEffect(() => {
-        const timer = setInterval(() => {
+        const update = () => {
             ServerAPI.getAd().then((ad) => {
                 console.debug('Load new ad', ad);
                 setUrl(ServerAPI.getUrl(ad.ad_img));
             });
-        }, 1000 * 120);
+        };
+        const timer = setInterval(update, 1000 * 120);
+        update();
 
         return () => clearInterval(timer);
     }, []);
