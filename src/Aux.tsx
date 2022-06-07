@@ -20,6 +20,7 @@ export default function Aux(props: {
                 source={{ uri }}
                 originWhitelist={['*']}
                 pullToRefreshEnabled={true}
+                minimumFontSize={1}
             />
         </View>
     );
