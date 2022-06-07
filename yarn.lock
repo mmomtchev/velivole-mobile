@@ -1362,10 +1362,10 @@
     serialize-error "6.0.0"
     temp-dir "^2.0.0"
 
-"@expo/dev-tools@0.13.155":
-  version "0.13.155"
-  resolved "https://registry.npmjs.org/@expo/dev-tools/-/dev-tools-0.13.155.tgz"
-  integrity sha512-f/IYWIN2fE2MC5kASWArgkWTmdOP8bSAucUdsnOO6pcaTS6BwGm1JNNQkd/Dbr6BEwVzR194phOkdaj958spTw==
+"@expo/dev-tools@0.13.156":
+  version "0.13.156"
+  resolved "https://registry.yarnpkg.com/@expo/dev-tools/-/dev-tools-0.13.156.tgz#4e5860c16dcf164e574c513ab5e8d84d9eb1aabd"
+  integrity sha512-4mUxhkxpufigrTCcO8gRrZyHFMixjqVMptZWairSBepGRGRlsy2O1ZCqe1okOeUAFdaBDH62MovzNwcUvibUiA==
   dependencies:
     "@expo/config" "6.0.24"
     base64url "3.0.1"
@@ -5884,10 +5884,10 @@ expo-asset@~8.5.0:
     path-browserify "^1.0.0"
     url-parse "^1.5.9"
 
-expo-cli@^5.4.7:
-  version "5.4.7"
-  resolved "https://registry.npmjs.org/expo-cli/-/expo-cli-5.4.7.tgz"
-  integrity sha512-1M5t4WqZaXy9ue8Pi56okQGl0wYAUDE22KIMhVWqPvIztXywxbMxEXt2LwO7BpHq8u2KigidVlFYON7btACVlg==
+expo-cli@^5.4.9:
+  version "5.4.9"
+  resolved "https://registry.yarnpkg.com/expo-cli/-/expo-cli-5.4.9.tgz#71408d15005a11efe71f14caae90bd767afe1f70"
+  integrity sha512-21NQaJLL7JQ8ZvFY/2/8xDt9R/5lfMbVoQXtfHt/Qx/sW3DCopUivm1i1M4zhiuNGdVW/wZZOH/f9oTWXHR/EQ==
   dependencies:
     "@babel/runtime" "7.9.0"
     "@expo/apple-utils" "0.0.0-alpha.31"
@@ -5895,7 +5895,7 @@ expo-cli@^5.4.7:
     "@expo/config" "6.0.24"
     "@expo/config-plugins" "4.1.5"
     "@expo/dev-server" "0.1.113"
-    "@expo/dev-tools" "0.13.155"
+    "@expo/dev-tools" "0.13.156"
     "@expo/json-file" "8.2.36"
     "@expo/osascript" "2.0.33"
     "@expo/package-manager" "0.0.54"
@@ -5945,7 +5945,7 @@ expo-cli@^5.4.7:
     url-join "4.0.0"
     uuid "^8.0.0"
     wrap-ansi "^7.0.0"
-    xdl "59.2.39"
+    xdl "59.2.40"
 
 expo-constants@~13.1.0, expo-constants@~13.1.1:
   version "13.1.1"
@@ -6145,14 +6145,6 @@ expo-structured-headers@~2.2.0:
   version "2.2.1"
   resolved "https://registry.npmjs.org/expo-structured-headers/-/expo-structured-headers-2.2.1.tgz"
   integrity sha512-nY6GuvoS/U5XdhfBNmvXGRoGzIXywXpSZs2wdiP+FbS79P9UWyEqzgARrBTF+6pQxUVMs6/vdffxRpwhjwYPug==
-
-expo-task-manager@~10.2.1:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-10.2.1.tgz#7f57ad7118736d6f8375bd1be36c748605683a2f"
-  integrity sha512-peT1ZG7VjQkdyTLWsPFTU5/W2dZwz2Il/Q6jjLowMPNN9iIq1qHU273+65PRR3zMRt1YfWh8vQSiHEIypKkxgg==
-  dependencies:
-    "@expo/config-plugins" "^4.0.14"
-    unimodules-app-loader "~3.1.0"
 
 expo-updates-interface@~0.6.0:
   version "0.6.0"
@@ -13117,11 +13109,6 @@ unicode-property-aliases-ecmascript@^2.0.0:
   resolved "https://registry.npmjs.org/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.0.0.tgz"
   integrity sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==
 
-unimodules-app-loader@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/unimodules-app-loader/-/unimodules-app-loader-3.1.0.tgz#1779d9505275e2da2e25812e142198665a14cb2d"
-  integrity sha512-ykDpkZY3ZUckNQN83YP1eY0uxLHK6cLP4WMa4RWsjx5JX38dFvcXpoE/+X2RZSbIgRcCR1fjyd7H1NHjDuXhuQ==
-
 union-value@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/union-value/-/union-value-1.0.1.tgz"
@@ -13805,10 +13792,10 @@ xcode@^3.0.0, xcode@^3.0.1:
     simple-plist "^1.1.0"
     uuid "^7.0.3"
 
-xdl@59.2.39:
-  version "59.2.39"
-  resolved "https://registry.npmjs.org/xdl/-/xdl-59.2.39.tgz"
-  integrity sha512-qBR6aa65jVsb9934L1eqqSvtHFy3yeU/yJXBYVnF5kg2jFQUGHL4W7WaAHGtvFQ+LVEOEyjM6vQMy9AZGPJUig==
+xdl@59.2.40:
+  version "59.2.40"
+  resolved "https://registry.yarnpkg.com/xdl/-/xdl-59.2.40.tgz#56b1929294360ac1b606f4a7b6b419b29d4296ee"
+  integrity sha512-HgqJ0Oa7zfAbRQ0rf5XrVrLaluXOOkvwiIdYGsWPpZEs3+fuRAnC+dYStqTsDMDp8kuZT/nMmlyMJDlWx76B+w==
   dependencies:
     "@expo/bunyan" "4.0.0"
     "@expo/config" "6.0.24"

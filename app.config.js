@@ -42,7 +42,7 @@ export default {
         },
         android: {
             package: 'fr.velivole.reactnative',
-            versionCode: packageJson.version.split('.').reduce((a, x, i) => a + x * 100 ** (2 - i)),
+            versionCode: packageJson.version.split('.').reduce((a, x) => a * 100 + +x, 0),
             googleServicesFile: './assets/google-services.json',
             adaptiveIcon: {
                 foregroundImage: './icons/velivole-adaptive.png',

@@ -62,7 +62,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
-    "expo-cli": "^5.4.7",
+    "expo-cli": "^5.4.9",
     "expo-dev-client": "^0.9.6",
     "patch-package": "^6.4.7",
     "po2json": "^0.4.5",
