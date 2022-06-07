@@ -1,4 +1,5 @@
 import * as Localization from 'expo-localization';
+import * as Notifications from 'expo-notifications';
 import i18n from 'i18n-js';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,6 +14,8 @@ import { veliHeight, veliMode } from './util';
 i18n.translations = { fr, en };
 i18n.fallbacks = false;
 
+const topicModelMessage = __DEV__ ? 'react-newrun-test' : 'react-newrun';
+
 const defaultNotifications: Record<string, boolean> = {
     AROME: true,
     ARPEGE: false,
@@ -20,6 +23,7 @@ const defaultNotifications: Record<string, boolean> = {
     'ICON-EU': false,
     GFS: false
 };
+
 export class Config {
     lang: 'en' | 'fr';
     terminal: string;
@@ -71,6 +75,24 @@ export class Config {
         const def = () => defaultNotifications[model].toString();
 
         return this.get(`@n${model}`, def).then((r) => r === 'true');
+    }
+
+    async subscribeToModelNotifications(model: string, value: boolean) {
+        const topic = `${topicModelMessage}-${model}`;
+        if (value) {
+            console.debug('subscribing to', topic);
+            await Notifications.topicSubscribeAsync(topic);
+        } else {
+            console.debug('unsubscribing from', topic);
+            await Notifications.topicUnsubscribeAsync(topic);
+        }
+    }
+
+    async setNotificationsStatus(model: string, value: boolean): Promise<void> {
+        return Promise.all([
+            this.subscribeToModelNotifications(model, value),
+            this.set(`@n${model}`, value.toString())
+        ]).then(() => undefined);
     }
 
     async load() {

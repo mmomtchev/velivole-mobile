@@ -26,8 +26,6 @@ import IconProfile from '../icons/table.svg';
 import IconEmagram from '../icons/chart.svg';
 import IconSettings from '../icons/settings.svg';
 
-const topicModelMessage = __DEV__ ? 'react-newrun-test' : 'react-newrun';
-
 type notificationModelMessage = {
 	channelId: string | null,
 	remoteMessage: {
@@ -45,25 +43,24 @@ type notificationModelMessage = {
 Notifications.setNotificationHandler({
 	handleNotification: async (notification) => {
 		console.debug('received notification', notification);
-		const remoteMessage = (notification.request.trigger as unknown as notificationModelMessage).remoteMessage;
-		if (remoteMessage.from === `/topics/${topicModelMessage}`) {
-			if (await config.getNotificationsStatus(remoteMessage.data.model)) {
-				await Notifications.dismissAllNotificationsAsync();
-				return {
-					shouldShowAlert: true,
-					shouldPlaySound: true,
-					shouldSetBadge: true,
-				};
-			}
-		}
 		return {
-			shouldShowAlert: false,
-			shouldPlaySound: false,
-			shouldSetBadge: false,
+			shouldShowAlert: true,
+			shouldPlaySound: true,
+			shouldSetBadge: true,
 		};
 	}
 });
 
+async function subscribeToAllModelNotifications() {
+	try {
+		for (const model of ['AROME', 'ARPEGE', 'ICON-D2', 'ICON-EU', 'GFS']) {
+			await config.subscribeToModelNotifications(model,
+				await config.getNotificationsStatus(model));
+		}
+	} catch (e) {
+		errorToast(new Error('Push notifications require a full native build: ' + e));
+	}
+}
 
 async function registerForPushNotificationsAsync() {
 	let token;
@@ -80,9 +77,6 @@ async function registerForPushNotificationsAsync() {
 		}
 		token = (await Notifications.getDevicePushTokenAsync()).data;
 		console.debug('Obtained push notification token', token);
-
-		await Notifications.topicSubscribeAsync(topicModelMessage)
-			.catch(() => errorToast(new Error('Push notifications require a full native build')));
 	}
 
 	if (Platform.OS === 'android') {
@@ -128,7 +122,9 @@ export default function App() {
 	// supports mass notifications to a topic
 	React.useEffect(() => {
 		if (Platform.OS === 'android') {
-			registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+			registerForPushNotificationsAsync()
+				.then(token => setExpoPushToken(token))
+				.then(subscribeToAllModelNotifications);
 		}
 	}, []);
 

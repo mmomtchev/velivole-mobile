@@ -49,27 +49,27 @@ const translateSettings = (config: Config, update: () => void) => {
                     {
                         label: 'AROME', type: 'boolean',
                         get: config.getNotificationsStatus.bind(config, 'AROME'),
-                        set: (v) => config.set('@nAROME', v.toString())
+                        set: config.setNotificationsStatus.bind(config, 'AROME')
                     },
                     {
                         label: 'ARPEGE', type: 'boolean',
                         get: config.getNotificationsStatus.bind(config, 'ARPEGE'),
-                        set: (v) => config.set('@nARPEGE', v.toString())
+                        set: config.setNotificationsStatus.bind(config, 'ARPEGE')
                     },
                     {
                         label: 'ICON-D2', type: 'boolean',
                         get: config.getNotificationsStatus.bind(config, 'ICON-D2'),
-                        set: (v) => config.set('@nICON-D2', v.toString())
+                        set: config.setNotificationsStatus.bind(config, 'ICON-D2')
                     },
                     {
                         label: 'ICON-EU', type: 'boolean',
                         get: config.getNotificationsStatus.bind(config, 'ICON-EU'),
-                        set: (v) => config.set('@nICON-EU', v.toString())
+                        set: config.setNotificationsStatus.bind(config, 'ICON-EU')
                     },
                     {
                         label: 'GFS', type: 'boolean',
                         get: config.getNotificationsStatus.bind(config, 'GFS'),
-                        set: (v) => config.set('@nGFS', v.toString())
+                        set: config.setNotificationsStatus.bind(config, 'GFS')
                     }
                 ]
             });
