@@ -1,7 +1,8 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import { execSync } from 'child_process';
 
-const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
 
 const buildGitHash = process.env.EAS_BUILD_GIT_COMMIT_HASH !== undefined
     ? process.env.EAS_BUILD_GIT_COMMIT_HASH.substring(0, 8)
