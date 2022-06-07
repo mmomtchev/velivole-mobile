@@ -13,7 +13,7 @@ export default {
     expo: {
         name: 'velivole.fr - meteo.guru',
         slug: 'velivole',
-        version: '1.0.0',
+        version: packageJson.version,
         orientation: 'portrait',
         scheme: 'velivole',
         icon: './icons/velivole.png',
@@ -31,6 +31,7 @@ export default {
         ],
         ios: {
             bundleIdentifier: 'fr.velivole.reactnative',
+            buildNumber: packageJson.version,
             supportsTablet: true,
             associatedDomains: [
                 'applinks:www.velivole.fr',
@@ -41,6 +42,7 @@ export default {
         },
         android: {
             package: 'fr.velivole.reactnative',
+            versionCode: packageJson.version.split('.').reduce((a, x, i) => a + x * 100 ** (2 - i)),
             googleServicesFile: './assets/google-services.json',
             adaptiveIcon: {
                 foregroundImage: './icons/velivole-adaptive.png',
