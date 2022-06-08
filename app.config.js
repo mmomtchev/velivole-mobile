@@ -93,7 +93,8 @@ export default {
         extra: {
             VERSION: packageJson.version,
             BUILD_HASH: buildGitHash,
-            BUILD_DATE: buildDate
+            BUILD_DATE: buildDate,
+            ROOT_URL: process.env.VELIVOLE_ROOT_URL
         }
     }
 };

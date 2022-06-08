@@ -3,6 +3,7 @@ import { View } from 'react-native';
 
 import { WebView } from 'react-native-webview';
 
+import { rootUrl } from './config';
 import { GeoJSONFeature } from './server';
 
 export default function Aux(props: {
@@ -11,7 +12,7 @@ export default function Aux(props: {
 }) {
     const page = props.page;
     const coords = props.selected.geometry.coordinates;
-    const uri = React.useMemo(() => `https://www.velivole.fr/${page}` +
+    const uri = React.useMemo(() => `${rootUrl}/${page}` +
         `?long=${coords[0]}&lat=${coords[1]}`, [page, coords]);
 
     return (

@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 import { GeoJSONFeature } from './server';
-import { config } from './config';
+import { config, rootUrl } from './config';
 import { createFeature, veliHeight, veliMode } from './util';
 
 export interface MapProps {
@@ -59,8 +59,7 @@ export default class Map extends React.PureComponent<MapProps> {
         params.mode = this.props.mode;
         params.height = this.props.height;
 
-        const base = __DEV__ ? 'http://velivole-work.garga/?' : 'https://www.velivole.fr/?';
-        const url = base + Object.keys(params).map((q) => `${q}=${params[q]}`).join('&');
+        const url = rootUrl + '?' + Object.keys(params).map((q) => `${q}=${params[q]}`).join('&');
 
         return (
             <View style={{ flex: 1, paddingTop: 5 }} >

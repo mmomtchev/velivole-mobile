@@ -1,5 +1,6 @@
 import * as Localization from 'expo-localization';
 import * as Notifications from 'expo-notifications';
+import Constants from 'expo-constants';
 import i18n from 'i18n-js';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,6 +25,8 @@ const defaultNotifications: Record<string, boolean> = {
     GFS: false
 };
 
+export const rootUrl = __DEV__ && Constants.manifest?.extra?.ROOT_URL ?
+    Constants.manifest.extra.ROOT_URL : 'https://www.velivole.fr';
 export class Config {
     lang: 'en' | 'fr';
     terminal: string;

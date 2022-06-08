@@ -86,7 +86,7 @@ const translateSettings = (config: Config, update: () => void) => {
                     marginEnd: 20
                 }}
             >
-                {Constants.manifest?.extra?.VERSION}: build {Constants.manifest?.extra?.BUILD_HASH} from {Constants.manifest?.extra?.BUILD_DATE}
+                {Constants.manifest?.extra?.VERSION}: build {Constants.manifest?.extra?.BUILD_HASH} {Constants.manifest?.extra?.BUILD_DATE}
             </Text>
         ),
         type: 'section',
