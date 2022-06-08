@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 import { GeoJSONFeature } from './server';
-import { config, rootUrl } from './config';
+import { config, rootUrl, refreshTimer } from './config';
 import { createFeature, veliHeight, veliMode } from './util';
 
 export interface MapProps {
@@ -23,10 +23,12 @@ export interface MapProps {
 export default class Map extends React.PureComponent<MapProps> {
     webref: WebView | null;
     sessionCode: string;
+    refreshHandler: number;
 
     constructor(props: Readonly<MapProps>) {
         super(props);
         this.webref = null;
+        this.refreshHandler = 0;
 
         // 1) Injecting the session information from the mobile application
         // which happens here
@@ -52,6 +54,18 @@ export default class Map extends React.PureComponent<MapProps> {
                 this.webref.injectJavaScript(`window.velivole.updatePoint([${this.props.selected.geometry.coordinates.join(',')}], true)`);
             }
         }
+    }
+
+    componentDidMount() {
+        this.refreshHandler = window.setInterval(() => {
+            if (this.webref)
+                this.webref.reload();
+        }, refreshTimer);
+    }
+
+    componentWillUnmount() {
+        if (this.refreshHandler)
+            window.clearInterval(this.refreshHandler);
     }
 
     render() {

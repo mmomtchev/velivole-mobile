@@ -27,6 +27,7 @@ const defaultNotifications: Record<string, boolean> = {
 
 export const rootUrl = __DEV__ && Constants.manifest?.extra?.ROOT_URL ?
     Constants.manifest.extra.ROOT_URL : 'https://www.velivole.fr';
+export const refreshTimer = __DEV__ ? 60 * 1000 : 30 * 60 * 1000;
 export class Config {
     lang: 'en' | 'fr';
     terminal: string;
