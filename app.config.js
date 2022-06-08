@@ -10,9 +10,26 @@ const buildGitHash = process.env.EAS_BUILD_GIT_COMMIT_HASH !== undefined
 
 const buildDate = execSync('date -u +"%Y-%m-%d"').toString().trimEnd();
 
+let appName = 'velivole.fr - meteo.guru';
+let pkgName = 'fr.velivole.reactnative';
+switch (process.env.EAS_PROFILE) {
+    case 'production':
+        break;
+    default:
+        process.env.EAS_PROFILE = 'development';
+    case 'development':
+        appName = 'velivole.fr DEV';
+        pkgName += '.dev';
+        break;
+    case 'preview':
+        appName = 'velivole.fr PREVIEW';
+        pkgName += '.preview';
+        break;
+}
+
 export default {
     expo: {
-        name: 'velivole.fr - meteo.guru',
+        name: appName,
         slug: 'velivole',
         version: packageJson.version,
         orientation: 'portrait',
@@ -31,7 +48,7 @@ export default {
             '**/*'
         ],
         ios: {
-            bundleIdentifier: 'fr.velivole.reactnative',
+            bundleIdentifier: pkgName,
             buildNumber: packageJson.version,
             supportsTablet: true,
             associatedDomains: [
@@ -42,7 +59,7 @@ export default {
             ]
         },
         android: {
-            package: 'fr.velivole.reactnative',
+            package: pkgName,
             versionCode: packageJson.version.split('.').reduce((a, x) => a * 100 + +x, 0),
             googleServicesFile: './assets/google-services.json',
             adaptiveIcon: {
@@ -94,7 +111,8 @@ export default {
             VERSION: packageJson.version,
             BUILD_HASH: buildGitHash,
             BUILD_DATE: buildDate,
-            ROOT_URL: process.env.VELIVOLE_ROOT_URL
+            ROOT_URL: process.env.VELIVOLE_ROOT_URL,
+            PROFILE: process.env.EAS_PROFILE
         }
     }
 };

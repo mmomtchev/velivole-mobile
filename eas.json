@@ -6,17 +6,27 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "env": {
+        "EAS_PROFILE": "development"
+      },
       "android": {
         "buildType": "apk"
       }
     },
     "preview": {
       "distribution": "internal",
+      "env": {
+        "EAS_PROFILE": "preview"
+      },
       "android": {
         "gradleCommand": ":app:assembleRelease"
       }
     },
-    "production": {}
+    "production": {
+      "env": {
+        "EAS_PROFILE": "production"
+      }
+    }
   },
   "submit": {
     "production": {}

@@ -85,8 +85,12 @@ const translateSettings = (config: Config, update: () => void) => {
                     textAlign: 'right',
                     marginEnd: 20
                 }}
+                numberOfLines={1}
             >
-                {Constants.manifest?.extra?.VERSION}: build {Constants.manifest?.extra?.BUILD_HASH} {Constants.manifest?.extra?.BUILD_DATE}
+                {Constants.manifest?.extra?.VERSION}: build {Constants.manifest?.extra?.BUILD_HASH}
+                -{Constants.manifest?.extra?.BUILD_DATE}
+                {__DEV__ ? '-DEV' : ''}
+                {Constants.manifest?.extra?.PROFILE !== 'production' ? '-' + Constants.manifest?.extra?.PROFILE : ''}
             </Text>
         ),
         type: 'section',
