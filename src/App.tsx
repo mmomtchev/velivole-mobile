@@ -5,6 +5,7 @@ import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 
 import { StatusBar } from 'expo-status-bar';
 import * as Device from 'expo-device';
+import * as TaskManager from 'expo-task-manager';
 import * as Notifications from 'expo-notifications';
 import * as Linking from 'expo-linking';
 
@@ -26,18 +27,16 @@ import IconProfile from '../icons/table.svg';
 import IconEmagram from '../icons/chart.svg';
 import IconSettings from '../icons/settings.svg';
 
-type notificationModelMessage = {
-	channelId: string | null,
-	remoteMessage: {
-		data: {
-			body: string;
-			model: string;
-			run: string;
-			type: string;
-			title: string;
-		};
-		from: string;
+type NotificationModelMessage = {
+	data: {
+		body: string;
+		model: string;
+		run: string;
+		type: string;
+		title: string;
 	};
+	from: string;
+	messageId: string;
 };
 
 Notifications.setNotificationHandler({
@@ -95,8 +94,10 @@ async function decodeURL(url: string | null): Promise<GeoJSONFeature | null> {
 	if (url === null) return null;
 
 	const { hostname, path, queryParams } = Linking.parse(url);
-	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat ?? (path ? path.split(',')[0] : undefined);
-	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long ?? (path ? path.split(',')[1] : undefined);
+	const lat = queryParams.selected_lat ?? queryParams.lat ?? queryParams.center_lat ??
+		(path ? path.split(',')[0] : undefined);
+	const lng = queryParams.selected_long ?? queryParams.long ?? queryParams.center_long ??
+		(path ? path.split(',')[1] : undefined);
 	console.debug('Link URL', hostname, path, lat, lng, queryParams);
 	if (lng === undefined && lat === undefined)
 		return null;
@@ -108,9 +109,26 @@ function tabOptions(title: string, Icon: typeof IconHome): BottomTabNavigationOp
 		headerShown: false,
 		tabBarLabel: title,
 		tabBarIcon: ({ focused, size, color }) =>
-			Platform.OS !== 'web' ? <Icon fill={focused ? color : 'black'} width={size} height={size} /> : undefined
+			Platform.OS !== 'web' ?
+				<Icon fill={focused ? color : 'black'} width={size} height={size} /> :
+				undefined
 	};
 }
+
+let lastNotification: NotificationModelMessage;
+function dismissLastNotification(notification: NotificationModelMessage) {
+	if (lastNotification && lastNotification.messageId)
+		Notifications.dismissNotificationAsync(lastNotification.messageId);
+	lastNotification = notification;
+}
+
+const BACKGROUND_NOTIFICATION_TASK = 'BACKGROUND-NOTIFICATION-TASK';
+TaskManager.defineTask(BACKGROUND_NOTIFICATION_TASK, ({ data }) => {
+	console.debug('received background notification', data);
+	dismissLastNotification((data as { notification: NotificationModelMessage; }).notification);
+});
+
+Notifications.registerTaskAsync(BACKGROUND_NOTIFICATION_TASK);
 
 export default function App() {
 	const [selected, setSelected] = React.useState<GeoJSONFeature | null>(null);
@@ -125,6 +143,10 @@ export default function App() {
 			registerForPushNotificationsAsync()
 				.then(token => setExpoPushToken(token))
 				.then(subscribeToAllModelNotifications);
+			const subscription = Notifications.addNotificationReceivedListener((notification) =>
+				dismissLastNotification((notification.request.trigger as unknown as
+					{ remoteMessage: NotificationModelMessage; }).remoteMessage));
+			return () => subscription.remove();
 		}
 	}, []);
 

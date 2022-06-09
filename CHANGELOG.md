@@ -2,6 +2,7 @@
 
 - Allow very tiny fonts on the profile page for correct rendering
 - Automatically refresh the data if the application has been running for more than 30 minutes
+- Replace previous notifications instead of adding new ones
 
 ### 1.0.1 2022-06-07
 
