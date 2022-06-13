@@ -1843,10 +1843,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mmomtchev/expo-android-localized-app-name@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@mmomtchev/expo-android-localized-app-name/-/expo-android-localized-app-name-1.0.0.tgz#a369c8d2bde4f6ed1c8a3a1828b87cfce0c65e0b"
-  integrity sha512-a8QA2Lz/nMHFFhsq82h0w/MDgpbGBiYpVxKLgWvlSawavreKfZSzeBJiv3KsmN6+0PWVRx6VGOVDGnQW3bKcIw==
+"@mmomtchev/expo-android-localized-app-name@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@mmomtchev/expo-android-localized-app-name/-/expo-android-localized-app-name-1.0.1.tgz#ce5e3b6d9d651c4badd88098762b72c017d30513"
+  integrity sha512-HD0azXKCHG1d/fQsIC+3JTKDB81rbdP/t7+e3q9shmMomK6EnQweqAN/UURKuwyh4QfJhrArGV0R7r3BuE0ibw==
   dependencies:
     "@expo/config-plugins" "^4.1.5"
     xml2js "^0.4.23"

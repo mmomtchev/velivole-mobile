@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@mmomtchev/expo-android-localized-app-name": "^1.0.0",
+    "@mmomtchev/expo-android-localized-app-name": "^1.0.1",
     "@types/i18n-js": "^3.8.2",
     "@types/react": "~17.0.21",
     "@types/react-dom": "^18.0.4",
