@@ -10,7 +10,7 @@ const buildGitHash = process.env.EAS_BUILD_GIT_COMMIT_HASH !== undefined
 
 const buildDate = execSync('date -u +"%Y-%m-%d"').toString().trimEnd();
 
-let appName = 'velivole.fr - meteo.guru';
+let appName = 'meteo.guru';
 let pkgName = 'fr.velivole.reactnative';
 switch (process.env.EAS_PROFILE) {
     case 'production':
@@ -47,6 +47,9 @@ export default {
         assetBundlePatterns: [
             '**/*'
         ],
+        locales: {
+            fr: './lang/fr.json'
+        },
         ios: {
             bundleIdentifier: pkgName,
             buildNumber: packageJson.version,
@@ -56,7 +59,10 @@ export default {
                 'applinks:velivole.fr',
                 'applinks:www.meteo.guru',
                 'applinks:megeo.guru'
-            ]
+            ],
+            infoPlist: {
+                CFBundleAllowMixedLocalizations: true
+            }
         },
         android: {
             package: pkgName,
