@@ -1,4 +1,4 @@
-### 1.0.2
+### 1.0.2 2022-06-13
 
 - Allow very tiny fonts on the profile page for correct rendering
 - Automatically refresh the data if the application has been running for more than 30 minutes
