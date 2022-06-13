@@ -14,6 +14,7 @@ const buildDate = execSync('date -u +"%Y-%m-%d"').toString().trimEnd();
 let appName = 'meteo.guru';
 let pkgName = 'fr.velivole.reactnative';
 switch (process.env.EAS_PROFILE) {
+    case 'preview':
     case 'production':
         break;
     default:
@@ -21,10 +22,6 @@ switch (process.env.EAS_PROFILE) {
     case 'development':
         appName = 'velivole.fr DEV';
         pkgName += '.dev';
-        break;
-    case 'preview':
-        appName = 'velivole.fr PREVIEW';
-        pkgName += '.preview';
         break;
 }
 
