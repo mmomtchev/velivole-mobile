@@ -1198,6 +1198,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.18.6":
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.0.tgz#5b55c9d394e5fcf304909a8b00c07dc217b56673"
+  integrity sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
 "@babel/template@^7.0.0", "@babel/template@^7.16.7", "@babel/template@^7.8.6":
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.16.7.tgz"
@@ -3727,11 +3734,6 @@ array-filter@~0.0.0:
   resolved "https://registry.npmjs.org/array-filter/-/array-filter-0.0.1.tgz"
   integrity sha512-VW0FpCIhjZdarWjIz8Vpva7U95fl2Jn+b+mmFFMLn8PIVscOQcAgEznwUzTEuUHuqZqIxwzRlcaN/urTFFQoiw==
 
-array-find-index@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz"
-  integrity sha512-M1HQyIXcBGtVywBt8WVdim+lrNaK7VHp99Qt5pSNziXznKHViIBbXWtfRTpEFpF/c4FdfxNAsCCwPp5phBYJtw==
-
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz"
@@ -5455,13 +5457,12 @@ css-declaration-sorter@^6.3.1:
   resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-6.3.1.tgz#be5e1d71b7a992433fb1c542c7a1b835e45682ec"
   integrity sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==
 
-css-in-js-utils@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/css-in-js-utils/-/css-in-js-utils-2.0.1.tgz"
-  integrity sha512-PJF0SpJT+WdbVVt0AOYp9C8GnuruRlL/UFW7932nLWmFLQTaWEzTBQEx7/hn4BuV+WON75iAViSUJLiU3PKbpA==
+css-in-js-utils@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/css-in-js-utils/-/css-in-js-utils-3.1.0.tgz#640ae6a33646d401fc720c54fc61c42cd76ae2bb"
+  integrity sha512-fJAcud6B3rRu+KHYk+Bwf+WFL2MDCJJ1XG9x137tJQ0xYxor7XziQtuGFbWNdqrvF4Tk26O3H73nfVqXt/fW1A==
   dependencies:
-    hyphenate-style-name "^1.0.2"
-    isobject "^3.0.1"
+    hyphenate-style-name "^1.0.3"
 
 css-loader@^6.5.1:
   version "6.7.3"
@@ -7246,6 +7247,11 @@ fast-levenshtein@^2.0.6:
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
   integrity sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==
 
+fast-loops@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/fast-loops/-/fast-loops-1.1.3.tgz#ce96adb86d07e7bf9b4822ab9c6fac9964981f75"
+  integrity sha512-8EZzEP0eKkEEVX+drtd9mtuQ+/QrlfW/5MlwcwK5Nds6EkZ/tRzEexkzUY2mIssnAyVLT+TKHuRXmFNNXYUd6g==
+
 fastq@^1.6.0:
   version "1.13.0"
   resolved "https://registry.npmjs.org/fastq/-/fastq-1.13.0.tgz"
@@ -7286,7 +7292,7 @@ fbjs-css-vars@^1.0.0:
   resolved "https://registry.npmjs.org/fbjs-css-vars/-/fbjs-css-vars-1.0.2.tgz"
   integrity sha512-b2XGFAFdWZWg0phtAWLHCk836A1Xann+I+Dgd3Gk64MHKZO44FfoD1KxyvbSh0qZsIoXQGGlVztIY+oitJPpRQ==
 
-fbjs@^3.0.0:
+fbjs@^3.0.0, fbjs@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/fbjs/-/fbjs-3.0.4.tgz"
   integrity sha512-ucV0tDODnGV3JCnnkmoszb5lf4bNpzjv80K41wd4k798Etq+UYD0y0TIfalLjZoKgjive6/adkRnszwapiDgBQ==
@@ -8426,9 +8432,9 @@ hyperlinker@^1.0.0:
   resolved "https://registry.yarnpkg.com/hyperlinker/-/hyperlinker-1.0.0.tgz#23dc9e38a206b208ee49bc2d6c8ef47027df0c0e"
   integrity sha512-Ty8UblRWFEcfSuIaajM34LdPXIhbs1ajEX/BBPv24J+enSVaEVY63xQ6lTO9VRYS5LAoghIG0IDJ+p+IPzKUQQ==
 
-hyphenate-style-name@^1.0.2, hyphenate-style-name@^1.0.4:
+hyphenate-style-name@^1.0.3:
   version "1.0.4"
-  resolved "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
+  resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
 i18n-js@^3.9.2:
@@ -8583,12 +8589,13 @@ ini@^1.3.5, ini@~1.3.0:
   resolved "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
 
-inline-style-prefixer@^6.0.0:
-  version "6.0.1"
-  resolved "https://registry.npmjs.org/inline-style-prefixer/-/inline-style-prefixer-6.0.1.tgz"
-  integrity sha512-AsqazZ8KcRzJ9YPN1wMH2aNM7lkWQ8tSPrW5uDk1ziYwiAPWSZnUsC7lfZq+BDqLqz0B4Pho5wscWcJzVvRzDQ==
+inline-style-prefixer@^6.0.1:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-6.0.4.tgz#4290ed453ab0e4441583284ad86e41ad88384f44"
+  integrity sha512-FwXmZC2zbeeS7NzGjJ6pAiqRhXR0ugUShSNb6GApMl6da0/XGc4MOJsoWAywia52EEWbXNSy0pzkwz/+Y+swSg==
   dependencies:
-    css-in-js-utils "^2.0.0"
+    css-in-js-utils "^3.1.0"
+    fast-loops "^1.1.3"
 
 internal-ip@4.3.0, internal-ip@^4.3.0:
   version "4.3.0"
@@ -12162,7 +12169,7 @@ prompts@2.4.2, prompts@^2.3.2, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@*, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@*, prop-types@^15.5.10, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -12556,18 +12563,18 @@ react-native-vector-icons@>=7.0.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-web@0.17.7:
-  version "0.17.7"
-  resolved "https://registry.npmjs.org/react-native-web/-/react-native-web-0.17.7.tgz"
-  integrity sha512-4OOU/QjyRySOXyHfTvljEMS4VXKn42Qs3y9uHDPMwaCUFjwg0oasR/j706OaVgan9kF4Ipa2vJ3F6Z/Xqy8KeQ==
+react-native-web@0.18.12:
+  version "0.18.12"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.18.12.tgz#d4bb3a783ece2514ba0508d7805b09c0a98f5a8e"
+  integrity sha512-fboP7yqobJ8InSr4fP+bQ3scOtSQtUoPcR+HWasH8b/fk/RO+mWcJs/8n+lewy9WTZc2D68ha7VwRDviUshEWA==
   dependencies:
-    array-find-index "^1.0.2"
+    "@babel/runtime" "^7.18.6"
     create-react-class "^15.7.0"
-    fbjs "^3.0.0"
-    hyphenate-style-name "^1.0.4"
-    inline-style-prefixer "^6.0.0"
+    fbjs "^3.0.4"
+    inline-style-prefixer "^6.0.1"
     normalize-css-color "^1.0.2"
-    prop-types "^15.6.0"
+    postcss-value-parser "^4.2.0"
+    styleq "^0.1.2"
 
 react-native-webview@11.18.1:
   version "11.18.1"
@@ -12746,6 +12753,11 @@ regenerate@^1.4.2:
   version "1.4.2"
   resolved "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
+
+regenerator-runtime@^0.13.11:
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regenerator-runtime@^0.13.2, regenerator-runtime@^0.13.4:
   version "0.13.9"
@@ -13974,6 +13986,11 @@ stylehacks@^5.1.1:
   dependencies:
     browserslist "^4.21.4"
     postcss-selector-parser "^6.0.4"
+
+styleq@^0.1.2:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/styleq/-/styleq-0.1.3.tgz#8efb2892debd51ce7b31dc09c227ad920decab71"
+  integrity sha512-3ZUifmCDCQanjeej1f6kyl/BeP/Vae5EYkQ9iJfUm/QwZvlgnZzyflqAsAWYURdtea8Vkvswu2GrC57h3qffcA==
 
 subscriptions-transport-ws@0.9.8:
   version "0.9.8"
