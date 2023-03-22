@@ -16,7 +16,7 @@
   "dependencies": {
     "@expo/webpack-config": "~18.0.0",
     "@mmomtchev/react-native-settings": "^1.0.6",
-    "@react-native-async-storage/async-storage": "~1.17.3",
+    "@react-native-async-storage/async-storage": "~1.17.11",
     "@react-navigation/bottom-tabs": "^6.5.5",
     "@react-navigation/native": "^6.1.4",
     "@react-navigation/native-stack": "^6.6.2",
