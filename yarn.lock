@@ -12685,14 +12685,14 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-autocomplete-dropdown@^2.0.1:
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/react-native-autocomplete-dropdown/-/react-native-autocomplete-dropdown-2.0.6.tgz"
-  integrity sha512-rij0nVTmgZwmGuEWi39MOj5lLdqsprh6MBVgInSUj674zQ9YxhXbs451JURonBSKACAj07W5cziwGcPSbthwrQ==
+react-native-autocomplete-dropdown@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-dropdown/-/react-native-autocomplete-dropdown-2.1.0.tgz#dbccd0ae14330b3b05dd42013bb38f00909a9253"
+  integrity sha512-yvtdKorr5XaUq2WzJBuK95ito3dUXBlBukP0vNhLeXe2kgHAcD7jg2Fdpk5QbXBtpDyJS4d/Y8SpMbawsaxufA==
   dependencies:
     lodash.debounce "*"
     prop-types "*"
-    react-native-size-matters "^0.3.0"
+    react-native-size-matters "^0.4.0"
     react-native-vector-icons ">=7.0.0"
 
 react-native-codegen@^0.0.17:
@@ -12744,10 +12744,10 @@ react-native-screens@~3.20.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-size-matters@^0.3.0:
-  version "0.3.1"
-  resolved "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz"
-  integrity sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw==
+react-native-size-matters@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz#01bfd0d59454318f4e0b13fe9c1eb0523d70f2e0"
+  integrity sha512-8/C0htHrFWeUm9N8JegmadovUfgTWkGBkDPZ1N3YkXtDWb+98Ya2gThiKcu445r8c7YhcrBfnHz/mYsXIusaOQ==
 
 react-native-status-bar-height@^2.6.0:
   version "2.6.0"
