@@ -24,7 +24,7 @@
     "expo": "~45.0.8",
     "expo-asset": "~8.9.0",
     "expo-device": "~4.2.0",
-    "expo-file-system": "~14.0.0",
+    "expo-file-system": "~14.1.0",
     "expo-linking": "~3.3.1",
     "expo-localization": "~13.1.0",
     "expo-location": "~14.3.0",
