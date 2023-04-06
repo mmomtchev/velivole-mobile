@@ -7334,12 +7334,12 @@ expo-structured-headers@~3.1.0:
   resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.1.1.tgz#198d44260f4b128d41313ef78df02fa6e20c5054"
   integrity sha512-oV6yNGsJxQt7S9HYZTr+4L0I/yRwOF38USJ81I1KiN3GQI4C2z7P5OosyREA2VL9O+kUZVCCpNYsBLSa3/5bAQ==
 
-expo-task-manager@~10.2.1:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-10.2.1.tgz#7f57ad7118736d6f8375bd1be36c748605683a2f"
-  integrity sha512-peT1ZG7VjQkdyTLWsPFTU5/W2dZwz2Il/Q6jjLowMPNN9iIq1qHU273+65PRR3zMRt1YfWh8vQSiHEIypKkxgg==
+expo-task-manager@~10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-10.3.0.tgz#0694b59361d5d47772d0fb3685ddf72763ce17c0"
+  integrity sha512-et6BT2q+woxu64XqHZlAfDtyOw5rZKjncUa7DOWrHWkf3MyxYWDtk89tmT+pJHdgupaw3qplIip5mLU1/vE1HA==
   dependencies:
-    "@expo/config-plugins" "^4.0.14"
+    "@expo/config-plugins" "~5.0.0"
     unimodules-app-loader "~3.1.0"
 
 expo-updates-interface@~0.6.0:
