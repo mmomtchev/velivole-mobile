@@ -1477,7 +1477,7 @@
     xcode "^3.0.1"
     xml2js "0.4.23"
 
-"@expo/config-plugins@~5.0.3":
+"@expo/config-plugins@~5.0.0", "@expo/config-plugins@~5.0.3":
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-5.0.4.tgz#216fea6558fe66615af1370de55193f4181cb23e"
   integrity sha512-vzUcVpqOMs3h+hyRdhGwk+eGIOhXa5xYdd92yO17RMNHav3v/+ekMbs7XA2c3lepMO8Yd4/5hqmRw9ZTL6jGzg==
@@ -7156,6 +7156,14 @@ expo-file-system@~14.0.0:
     "@expo/config-plugins" "^4.0.14"
     uuid "^3.4.0"
 
+expo-file-system@~14.1.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-14.1.0.tgz#4fa410873ef12ac8bec873593f7489f4305a14b8"
+  integrity sha512-lJcPGQ8yKXVknVkD5TmcJnR/TpQbEL0JP8hknLejfq3FIqPqI/LBFn31YiP37grxW8lITz1al8pq5T6CSUjAzQ==
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
+    uuid "^3.4.0"
+
 expo-file-system@~15.2.0:
   version "15.2.2"
   resolved "https://registry.yarnpkg.com/expo-file-system/-/expo-file-system-15.2.2.tgz#a1ddf8aabf794f93888a146c4f5187e2004683a3"
@@ -7196,19 +7204,19 @@ expo-linking@~3.3.1:
     qs "^6.9.1"
     url-parse "^1.5.9"
 
-expo-localization@~13.0.0:
-  version "13.0.0"
-  resolved "https://registry.npmjs.org/expo-localization/-/expo-localization-13.0.0.tgz"
-  integrity sha512-SlgHQYaX1D/4d78EQB836Yfx6iuC04pHdMNKoY7pxqEE+hC/X4Mnu0FfhbelfwXTPHFNNFFU1kV6XVF2Mu3dlg==
+expo-localization@~13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/expo-localization/-/expo-localization-13.1.0.tgz#a69eac5dfee3f1e7b3a443bdd61fd38de5e4e28b"
+  integrity sha512-UFQShIiygfAeRoK3vowYzulWx0a5sM/BtkjVppPII8ZUUDKu2MkGS0uuwGkPyp2zFx3StJ2RxNFISU8cLPSk9w==
   dependencies:
     rtl-detect "^1.0.2"
 
-expo-location@~14.2.2:
-  version "14.2.2"
-  resolved "https://registry.npmjs.org/expo-location/-/expo-location-14.2.2.tgz"
-  integrity sha512-P1v+huBWhuerV4okRhN0+Htx3Nw8LGWTUF66E5iwuZEWvLTYQEQ+Od0j2CvD4FY6rhncNpoIZcWVlIy5NmG4fg==
+expo-location@~14.3.0:
+  version "14.3.0"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-14.3.0.tgz#f613147e36afad974732ddc1b4e142d7e1b8bba2"
+  integrity sha512-CKU6bW1rB6521LruyUsZm6dQXXBix9E64ZZmOpVgom1DQ3Bfd23IBvXXeUQeIhy+NbOzF1itFrPTLzspgl6wPg==
   dependencies:
-    "@expo/config-plugins" "^4.0.14"
+    "@expo/config-plugins" "~5.0.0"
 
 expo-manifests@~0.3.0:
   version "0.3.0"
@@ -7309,10 +7317,10 @@ expo-splash-screen@~0.18.1:
     "@expo/configure-splash-screen" "^0.6.0"
     "@expo/prebuild-config" "6.0.0"
 
-expo-sqlite@~10.2.0:
-  version "10.2.0"
-  resolved "https://registry.npmjs.org/expo-sqlite/-/expo-sqlite-10.2.0.tgz"
-  integrity sha512-sG1YnGldQXAolCRyee3buQclKrHBt4oL7zklMoFspXDm8r/mHzbJ2SViZbM7Ws0xrimB45vR+mwcKsT6jU8AgQ==
+expo-sqlite@~10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/expo-sqlite/-/expo-sqlite-10.3.0.tgz#c2d7fa2f6777b8a8730a38cf77b2c57541ada66b"
+  integrity sha512-i9jyOfDw472Ueqnhl4LvspSpBVRzeuGjPWFwDYnaBgNOV3HLeK9Q6P5ixV2/on5RenfL4jsxOQtgeZAXke9/UQ==
   dependencies:
     "@expo/websql" "^1.0.1"
 
@@ -7326,12 +7334,12 @@ expo-structured-headers@~3.1.0:
   resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.1.1.tgz#198d44260f4b128d41313ef78df02fa6e20c5054"
   integrity sha512-oV6yNGsJxQt7S9HYZTr+4L0I/yRwOF38USJ81I1KiN3GQI4C2z7P5OosyREA2VL9O+kUZVCCpNYsBLSa3/5bAQ==
 
-expo-task-manager@~10.2.1:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-10.2.1.tgz#7f57ad7118736d6f8375bd1be36c748605683a2f"
-  integrity sha512-peT1ZG7VjQkdyTLWsPFTU5/W2dZwz2Il/Q6jjLowMPNN9iIq1qHU273+65PRR3zMRt1YfWh8vQSiHEIypKkxgg==
+expo-task-manager@~10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-10.3.0.tgz#0694b59361d5d47772d0fb3685ddf72763ce17c0"
+  integrity sha512-et6BT2q+woxu64XqHZlAfDtyOw5rZKjncUa7DOWrHWkf3MyxYWDtk89tmT+pJHdgupaw3qplIip5mLU1/vE1HA==
   dependencies:
-    "@expo/config-plugins" "^4.0.14"
+    "@expo/config-plugins" "~5.0.0"
     unimodules-app-loader "~3.1.0"
 
 expo-updates-interface@~0.6.0:
