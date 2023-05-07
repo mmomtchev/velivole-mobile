@@ -14,7 +14,7 @@
     "lint": "eslint --fix src/*.ts*"
   },
   "dependencies": {
-    "@expo/webpack-config": "~18.0.0",
+    "@expo/webpack-config": "~18.0.2",
     "@mmomtchev/react-native-settings": "^1.0.6",
     "@react-native-async-storage/async-storage": "~1.18.0",
     "@react-navigation/bottom-tabs": "^6.5.5",
