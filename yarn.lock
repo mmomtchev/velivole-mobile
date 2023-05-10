@@ -12850,10 +12850,10 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-autocomplete-dropdown@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-autocomplete-dropdown/-/react-native-autocomplete-dropdown-2.1.0.tgz#dbccd0ae14330b3b05dd42013bb38f00909a9253"
-  integrity sha512-yvtdKorr5XaUq2WzJBuK95ito3dUXBlBukP0vNhLeXe2kgHAcD7jg2Fdpk5QbXBtpDyJS4d/Y8SpMbawsaxufA==
+react-native-autocomplete-dropdown@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-dropdown/-/react-native-autocomplete-dropdown-2.1.1.tgz#08783892cf388180aa4382afc272d9ceb255cc76"
+  integrity sha512-U7k7UYdr9GGDi/oT4oJO+9fnHgGebt8NDMuoHmRkMwW5N1NADdBMv1fX2+SoW1bqqqi9bHYMkOCVnKqzD8/33Q==
   dependencies:
     lodash.debounce "*"
     prop-types "*"
