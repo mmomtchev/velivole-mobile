@@ -7363,10 +7363,10 @@ expo-sqlite@~10.3.0:
   dependencies:
     "@expo/websql" "^1.0.1"
 
-expo-status-bar@~1.4.4:
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.4.4.tgz#6874ccfda5a270d66f123a9f220735a76692d114"
-  integrity sha512-5DV0hIEWgatSC3UgQuAZBoQeaS9CqeWRZ3vzBR9R/+IUD87Adbi4FGhU10nymRqFXOizGsureButGZIXPs7zEA==
+expo-status-bar@~1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.5.0.tgz#b4905c178fef9d7f381aa16300f6bf4e199cf423"
+  integrity sha512-Sf/yTITfipPAFNOTT5/QZS4Ns/RuSe0xjrLtu3qir2CbyQ58A22gojM6EUzP5JX2YeXQCMSIozLRvL0mYr93uw==
 
 expo-structured-headers@~3.1.0:
   version "3.1.1"
