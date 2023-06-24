@@ -27,7 +27,7 @@
     "expo-file-system": "~15.0.0",
     "expo-linking": "~3.3.1",
     "expo-localization": "~13.1.0",
-    "expo-location": "~15.0.0",
+    "expo-location": "~15.2.0",
     "expo-notifications": "^0.19.0",
     "expo-splash-screen": "~0.20.0",
     "expo-sqlite": "~10.3.0",
