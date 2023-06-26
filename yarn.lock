@@ -7264,10 +7264,10 @@ expo-localization@~13.1.0:
   dependencies:
     rtl-detect "^1.0.2"
 
-expo-location@~15.0.0:
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-15.0.1.tgz#b132b8b50ce4d2dd9257b7b66cec44beeba253a4"
-  integrity sha512-GOAP24m8fMahFcBT75H07f2+IQAOCOdNTzb8Ci/19NZ+Y/CY2lIvb55V8zu7Gn0+76FKPb7XC3ebQaq4ctn1QA==
+expo-location@~15.2.0:
+  version "15.2.0"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-15.2.0.tgz#e05e0cf16ac8044cd2e65ed1cc6acc47959744e6"
+  integrity sha512-M6QEXDIFfm6PSaSY6zmUsGRXII3jL8qiKV0ZJFXEXuKD3x78c+Qz0Y+T84QS2s2zhK/fkeyl4p4daLDK8HIDrg==
 
 expo-manifests@~0.3.0:
   version "0.3.0"
