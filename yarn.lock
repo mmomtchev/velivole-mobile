@@ -7384,12 +7384,12 @@ expo-structured-headers@~3.2.0:
   resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.2.0.tgz#15d271c7bcc622ac0fa674f8f2b0664d6533ef4c"
   integrity sha512-N8U6tDgJPTe2QBYn600Imbc69/WseR4L8ThmU6oGOGx2stEgCcaLy6J06cR40SjayCpVgRdp531wmgIe7UJ5MQ==
 
-expo-task-manager@~11.0.0:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-11.0.1.tgz#0c131c74dba46eb97989841336d3c8bdbf9c2a28"
-  integrity sha512-9KXWkQyzldiTBz0+wRe7ypQQ0m02j838f8j0pDRrDbW2X5hBUJWzDGq7OItJ5F9vDjJ3oRZikOAhFGj+wxh3EA==
+expo-task-manager@~11.2.0:
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/expo-task-manager/-/expo-task-manager-11.2.0.tgz#2165b41c18e710c63d6bb265a9c8c2ab323434fa"
+  integrity sha512-gpRcmRSYziRJ5VsxrjULNDckrlBQn66jWWSbq+9iCl33vUD8iVQa2yfXLoXlvW051eTUpSSJJASVojNZSagZyQ==
   dependencies:
-    unimodules-app-loader "~4.0.0"
+    unimodules-app-loader "~4.1.0"
 
 expo-updates-interface@~0.10.0:
   version "0.10.0"
@@ -15037,10 +15037,10 @@ unicode-property-aliases-ecmascript@^2.0.0:
   resolved "https://registry.npmjs.org/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.0.0.tgz"
   integrity sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==
 
-unimodules-app-loader@~4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/unimodules-app-loader/-/unimodules-app-loader-4.0.0.tgz#2e4e4e6460063898cefdcfff0fcb16e1c62ee0c8"
-  integrity sha512-YlV0rOM9pjdeTMEGR0rr/u+F7f1ygINUsTEiRIPvBewTk3Si/Sm8Ur5f92n+f0Sy1EIuOTGgyGaUdjJBfAd0YA==
+unimodules-app-loader@~4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/unimodules-app-loader/-/unimodules-app-loader-4.1.1.tgz#c263ee1a52eac1a583f7b8d7b7cefd562d6d0c51"
+  integrity sha512-K0vuriaD1Zft2dKwYSER/eoiTEPINL6cASed42/QuWeV9jqfQ7Y6OAHM4zIyhXVdro/IS2L6pPnnqZFIH2xoKg==
 
 union-value@^1.0.0:
   version "1.0.1"
