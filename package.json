@@ -21,7 +21,7 @@
     "@react-navigation/native": "^6.1.4",
     "@react-navigation/native-stack": "^6.9.10",
     "@types/uuid": "^8.3.4",
-    "expo": "~49.0.0",
+    "expo": "~49.0.17",
     "expo-asset": "~8.10.0",
     "expo-device": "~4.3.0",
     "expo-file-system": "~15.3.0",
