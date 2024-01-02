@@ -37,7 +37,7 @@
     "i18n-js": "^3.9.2",
     "react": "17.0.2",
     "react-dom": "^17.0.2",
-    "react-native": "0.72.7",
+    "react-native": "0.73.0",
     "react-native-autocomplete-dropdown": "^2.1.1",
     "react-native-get-random-values": "^1.9.0",
     "react-native-root-toast": "3.4.1",
